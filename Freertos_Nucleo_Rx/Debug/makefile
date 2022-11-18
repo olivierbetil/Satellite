@@ -64,8 +64,8 @@ all: main-build
 main-build: Freertos_Nucleo_Rx.elf secondary-outputs
 
 # Tool invocations
-Freertos_Nucleo_Rx.elf Freertos_Nucleo_Rx.map: $(OBJS) $(USER_OBJS) C:\Users\olivi\Documents\Cours\I1\DEEP\workspace_stm32\Freertos_Nucleo_Rx\STM32F103RBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Freertos_Nucleo_Rx.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\olivi\Documents\Cours\I1\DEEP\workspace_stm32\Freertos_Nucleo_Rx\STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Freertos_Nucleo_Rx.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Freertos_Nucleo_Rx.elf Freertos_Nucleo_Rx.map: $(OBJS) $(USER_OBJS) C:\Users\olivi\Documents\GitHub\Satellite\Freertos_Nucleo_Rx\STM32F103RBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Freertos_Nucleo_Rx.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\olivi\Documents\GitHub\Satellite\Freertos_Nucleo_Rx\STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Freertos_Nucleo_Rx.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
