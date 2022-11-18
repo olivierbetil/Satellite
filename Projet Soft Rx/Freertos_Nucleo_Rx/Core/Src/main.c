@@ -54,6 +54,7 @@ UART_HandleTypeDef huart2;
 osThreadId Task_IdleHandle;
 osThreadId Task_SPIHandle;
 osThreadId Task_UARTHandle;
+osThreadId Task_ValveHandle;
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -66,6 +67,7 @@ static void MX_SPI1_Init(void);
 void Idle_App(void const * argument);
 void SPI_App(void const * argument);
 void UART_App(void const * argument);
+void Valve_App(void const * argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -73,9 +75,9 @@ void UART_App(void const * argument);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t UART_STATUS=0;
+uint8_t UART_STATUS=1;
 uint8_t RxAddress[]={0xEE, 0xDD, 0xCC, 0xBB, 0xAA};
-uint8_t Rx_data[64];
+uint8_t Rx_data[8]="hellowor";
 typedef enum
 {
 ALLUMER=GPIO_PIN_SET,
@@ -148,6 +150,10 @@ int main(void)
   /* definition and creation of Task_UART */
   osThreadDef(Task_UART, UART_App, osPriorityNormal, 0, 256);
   Task_UARTHandle = osThreadCreate(osThread(Task_UART), NULL);
+
+  /* definition and creation of Task_Valve */
+  osThreadDef(Task_Valve, Valve_App, osPriorityLow, 0, 128);
+  Task_ValveHandle = osThreadCreate(osThread(Task_Valve), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -357,7 +363,7 @@ void Idle_App(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+    osDelay(200);
   }
   /* USER CODE END 5 */
 }
@@ -375,8 +381,8 @@ void SPI_App(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	if(isDataAvailable(1)==1){
-		nrf24_Receive(Rx_data);
+	if(isDataAvailable(1)){
+		nrf24_Receive(RxAddress);
 		HAL_GPIO_TogglePin(LED_GREEN_GPIO, LED_GREEN_PIN);
 		UART_STATUS=1;
 	}
@@ -399,11 +405,32 @@ void UART_App(void const * argument)
   for(;;)
   {
 	  if(UART_STATUS==1){
-		  //envoyer Rx_data via UART
+		  HAL_UART_Transmit(&huart2, Rx_data, 8, 100);
 	  }
-    vTaskDelay(10);
+    vTaskDelay(1000);
   }
   /* USER CODE END UART_App */
+}
+
+/* USER CODE BEGIN Header_Valve_App */
+/**
+* @brief Function implementing the Task_Valve thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_Valve_App */
+void Valve_App(void const * argument)
+{
+  /* USER CODE BEGIN Valve_App */
+  /* Infinite loop */
+  for(;;)
+  {
+	  if(!HAL_GPIO_ReadPin(BLUE_BUTTON_GPIO, BLUE_BUTTON_PIN)){
+	  		HAL_GPIO_TogglePin(LED_GREEN_GPIO, LED_GREEN_PIN);
+	  	}
+    vTaskDelay(100);
+  }
+  /* USER CODE END Valve_App */
 }
 
 /**

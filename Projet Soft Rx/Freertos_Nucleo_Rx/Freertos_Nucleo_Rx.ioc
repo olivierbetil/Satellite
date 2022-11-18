@@ -1,7 +1,8 @@
 #MicroXplorer Configuration settings - do not modify
 FREERTOS.FootprintOK=true
-FREERTOS.IPParameters=Tasks01,FootprintOK,configUSE_NEWLIB_REENTRANT
-FREERTOS.Tasks01=Task_Idle,-3,128,Idle_App,Default,NULL,Dynamic,NULL,NULL;Task_SPI,0,256,SPI_App,Default,NULL,Dynamic,NULL,NULL;Task_UART,0,256,UART_App,Default,NULL,Dynamic,NULL,NULL
+FREERTOS.IPParameters=Tasks01,FootprintOK,configUSE_NEWLIB_REENTRANT,configTOTAL_HEAP_SIZE
+FREERTOS.Tasks01=Task_Idle,-3,128,Idle_App,Default,NULL,Dynamic,NULL,NULL;Task_SPI,0,256,SPI_App,Default,NULL,Dynamic,NULL,NULL;Task_UART,0,256,UART_App,Default,NULL,Dynamic,NULL,NULL;Task_Valve,-2,128,Valve_App,Default,NULL,Dynamic,NULL,NULL
+FREERTOS.configTOTAL_HEAP_SIZE=6000
 FREERTOS.configUSE_NEWLIB_REENTRANT=1
 File.Version=6
 KeepUserPlacement=false

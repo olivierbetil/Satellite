@@ -126,7 +126,7 @@ void nrf24_RxMode(uint8_t *Address, uint8_t channel){
 	nrf24_WriteReg(RF_CH, channel);
 
 	uint8_t en_rxaddr=nrf24_ReadReg(EN_RXADDR);
-	en_rxaddr|=(1<<1);
+	en_rxaddr=en_rxaddr | (1<<1);
 	nrf24_WriteReg(EN_RXADDR, en_rxaddr);
 	nrf24_WriteRegMulti(RX_ADDR_P1, Address, 5);
 	nrf24_WriteReg(RX_PW_P1, 32); //Set up la taille maximale de la donnée à récuperer
@@ -141,7 +141,7 @@ void nrf24_RxMode(uint8_t *Address, uint8_t channel){
 uint8_t isDataAvailable(uint8_t pipenum){
 	uint8_t status = nrf24_ReadReg(STATUS);
 
-	if(status&(1<<6) && status&(pipenum<<1)){
+	if((status&(1<<6)) && (status&(pipenum<<1))){
 		nrf24_WriteReg(STATUS, (1<<6));
 		return 1;
 	}
