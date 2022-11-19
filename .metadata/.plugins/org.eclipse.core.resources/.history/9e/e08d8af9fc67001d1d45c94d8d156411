@@ -28,11 +28,6 @@ void ajoute(uint8_t nvPixel)
     }
 }
 
-/**
- * @brief Renvoie un element du tableau et décale les autres éléments afin de fonctionner en FIFO
- *
- * @return retPixel uint8_t Renvoie l'element du tableau le plus ancien
- */
 uint8_t retire()
 {
     uint8_t retPixel=tableauPixel[0];
@@ -47,11 +42,6 @@ uint8_t retire()
     return retPixel;
 }
 
-/**
- * @brief permet de savoir s'il y a une donnée à récuperer dans le tableau
- *
- * @return true si le tableau n'est pas vide; false si le tableau est vide
- */
 uint8_t fileDataAvailable()
 {
     if(indiceSommet!=-1)
