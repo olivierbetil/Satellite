@@ -77,9 +77,9 @@ void Valve_App(void const * argument);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t UART_STATUS=1;
+uint8_t UART_STATUS=0;
 uint8_t RxAddress[]={0xEE, 0xDD, 0xCC, 0xBB, 0xAA};
-uint8_t Rx_data[8]="hellowor";
+uint8_t Rx_data[32];
 typedef enum
 {
 ALLUMER=GPIO_PIN_SET,
@@ -384,7 +384,7 @@ void SPI_App(void const * argument)
   for(;;)
   {
 	if(isDataAvailable(1)){
-		nrf24_Receive(RxAddress);
+		nrf24_Receive(Rx_data);
 		HAL_GPIO_TogglePin(LED_GREEN_GPIO, LED_GREEN_PIN);
 		UART_STATUS=1;
 	}
@@ -407,7 +407,8 @@ void UART_App(void const * argument)
   for(;;)
   {
 	  if(UART_STATUS==1){
-		  HAL_UART_Transmit(&huart2, Rx_data, 8, 100);
+		  HAL_UART_Transmit(&huart2, Rx_data, 32, 100);
+		  UART_STATUS=0;
 	  }
     vTaskDelay(1000);
   }

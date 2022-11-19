@@ -6,6 +6,6 @@
 ../Core/Src/main.c:362:6:Idle_App	16	static
 ../Core/Src/main.c:380:6:SPI_App	16	static
 ../Core/Src/main.c:403:6:UART_App	16	static
-../Core/Src/main.c:424:6:Valve_App	16	static
-../Core/Src/main.c:446:6:HAL_TIM_PeriodElapsedCallback	16	static
-../Core/Src/main.c:463:6:Error_Handler	4	static,ignoring_inline_asm
+../Core/Src/main.c:425:6:Valve_App	16	static
+../Core/Src/main.c:447:6:HAL_TIM_PeriodElapsedCallback	16	static
+../Core/Src/main.c:464:6:Error_Handler	4	static,ignoring_inline_asm

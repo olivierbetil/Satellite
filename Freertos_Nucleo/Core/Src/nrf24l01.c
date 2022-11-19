@@ -29,7 +29,6 @@ void nrf24_WriteReg(uint8_t Reg, uint8_t Data){
 	uint8_t buf[2];
 	buf[0]=Reg|1<<5;
 	buf[1]=Data;
-
 	selectCS();
 	HAL_SPI_Transmit(&hspi1, buf, 2, 100);
 	unselectCS();
@@ -87,11 +86,14 @@ void nrf24_TxMode(uint8_t *Address, uint8_t channel){
 	nrf24_WriteReg(RF_CH, channel);
 	nrf24_WriteRegMulti(TX_ADDR, Address, 5);
 
+
+
 	//power up the device
 	uint8_t config = nrf24_ReadReg(CONFIG);
 	config=config|(1<<1);
 	nrf24_WriteReg(CONFIG, config);
 	enableCE();
+
 }
 
 uint8_t nrf24_Transmit(uint8_t *data){
