@@ -22,10 +22,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdint.h>
 #include <stdio.h>
 #include "nrf24l01.h"
-#include "file.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/

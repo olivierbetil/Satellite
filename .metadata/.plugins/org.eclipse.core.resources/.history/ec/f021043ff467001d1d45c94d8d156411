@@ -1,5 +1,5 @@
 #ifndef INC_NRF24L01_H_
-#define INC_NRF24L01_H_
+#define INC_NRF_24L01_H_
 
 void nrf24_Init (void);
 
