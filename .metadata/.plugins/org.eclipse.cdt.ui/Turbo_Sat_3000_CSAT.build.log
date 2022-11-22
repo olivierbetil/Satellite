@@ -1,0 +1,10 @@
+17:24:46 **** Incremental Build of configuration Debug for project Turbo_Sat_3000_CSAT ****
+make -j8 all 
+arm-none-eabi-size   Turbo_Sat_3000_CSAT.elf 
+   text	   data	    bss	    dec	    hex	filename
+  48500	    200	  20176	  68876	  10d0c	Turbo_Sat_3000_CSAT.elf
+Finished building: default.size.stdout
+ 
+
+17:24:46 Build Finished. 0 errors, 0 warnings. (took 414ms)
+

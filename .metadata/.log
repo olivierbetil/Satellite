@@ -6962,3 +6962,6 @@ java.net.ConnectException: Connection refused: connect
 	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
 	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-11-22 16:46:26.626
+!MESSAGE Indexed 'Turbo_Sat_3000_CSAT' (36 sources, 100 headers) in 1.59 sec: 7,776 declarations; 48,964 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0035%)
