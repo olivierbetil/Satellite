@@ -1,8 +1,9 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Freertos_Nucleo Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Freertos_Nucleo_Rx Debug
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Freertos_Nucleo Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Freertos_Nucleo_Rx Debug,org.eclipse.launchbar.core.descriptorType.default\:Turbo_Sat_3000_CSB Debug
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Freertos_Nucleo\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Freertos_Nucleo\ Debug/activeLaunchTarget=null\:---
 org.eclipse.launchbar.core.descriptorType.default\:Freertos_Nucleo\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:Turbo_Sat_3000_CSB\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
