@@ -70,8 +70,8 @@ void Camera_App(void const * argument);
 
 /* USER CODE BEGIN PFP */
 uint8_t Address[]={0xEE, 0xDD, 0xCC, 0xBB, 0xAA};
-uint8_t data[32]="Hello World";
-uint8_t init = 0;
+uint8_t data;
+uint8_t init = 1;
 
 typedef enum
 {
@@ -80,7 +80,7 @@ typedef enum
 	OFF
 }etat_e;
 
-etat_e SPI_Mode=OFF;
+etat_e SPI_Mode=TX;
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
