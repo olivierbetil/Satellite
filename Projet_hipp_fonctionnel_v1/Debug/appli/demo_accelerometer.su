@@ -1,0 +1,5 @@
+../appli/demo_accelerometer.c:26:11:DEMO_accelerometer_state_machine	88	static
+../appli/demo_accelerometer.c:160:6:DEMO_accelerometer_process_1ms	4	static
+../appli/demo_accelerometer.c:165:6:DEMO_accelerometer_open	8	static
+../appli/demo_accelerometer.c:173:6:DEMO_accelerometer_close	8	static
+../appli/demo_accelerometer.c:185:6:DEMO_ACCELERO_SetPorts	24	static

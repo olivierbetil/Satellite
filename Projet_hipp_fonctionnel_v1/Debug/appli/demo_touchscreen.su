@@ -1,0 +1,6 @@
+../appli/demo_touchscreen.c:38:6:TS_Init	32	static
+../appli/demo_touchscreen.c:50:8:TS_is_initialized	4	static
+../appli/demo_touchscreen.c:61:11:TS_Calibration	224	static
+../appli/demo_touchscreen.c:317:8:TS_Get_Touch	32	static
+../appli/demo_touchscreen.c:342:8:TS_Get_Filtered_Touch	24	static
+../appli/demo_touchscreen.c:363:6:TS_process_1ms	4	static

@@ -1,0 +1,8 @@
+../appli/demo.c:55:6:DEMO_init	8	static
+../appli/demo.c:69:6:DEMO_process_main	24	static
+../appli/demo.c:93:6:TIMER2_user_handler_it_1ms	4	static
+../appli/demo.c:116:13:DEMO_state_machine	24	static
+../appli/demo.c:205:6:DEMO_IHM_display_menu	16	static
+../appli/demo.c:219:15:DEMO_IHM_menu_choice_uart	16	static
+../appli/demo.c:230:6:DEMO_IHM_uart_read	16	static
+../appli/demo.c:245:11:DEMO_IHM_read_number	24	static

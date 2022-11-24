@@ -1,0 +1,17 @@
+../lib/hal/src/stm32f4xx_hal_sram.c:143:19:HAL_SRAM_Init	24	static
+../lib/hal/src/stm32f4xx_hal_sram.c:179:19:HAL_SRAM_DeInit	16	static
+../lib/hal/src/stm32f4xx_hal_sram.c:200:13:HAL_SRAM_MspInit	16	static
+../lib/hal/src/stm32f4xx_hal_sram.c:212:13:HAL_SRAM_MspDeInit	16	static
+../lib/hal/src/stm32f4xx_hal_sram.c:224:13:HAL_SRAM_DMA_XferCpltCallback	16	static
+../lib/hal/src/stm32f4xx_hal_sram.c:236:13:HAL_SRAM_DMA_XferErrorCallback	16	static
+../lib/hal/src/stm32f4xx_hal_sram.c:269:19:HAL_SRAM_Read_8b	32	static
+../lib/hal/src/stm32f4xx_hal_sram.c:304:19:HAL_SRAM_Write_8b	32	static
+../lib/hal/src/stm32f4xx_hal_sram.c:344:19:HAL_SRAM_Read_16b	32	static
+../lib/hal/src/stm32f4xx_hal_sram.c:379:19:HAL_SRAM_Write_16b	32	static
+../lib/hal/src/stm32f4xx_hal_sram.c:419:19:HAL_SRAM_Read_32b	24	static
+../lib/hal/src/stm32f4xx_hal_sram.c:452:19:HAL_SRAM_Write_32b	24	static
+../lib/hal/src/stm32f4xx_hal_sram.c:490:19:HAL_SRAM_Read_DMA	24	static
+../lib/hal/src/stm32f4xx_hal_sram.c:524:19:HAL_SRAM_Write_DMA	24	static
+../lib/hal/src/stm32f4xx_hal_sram.c:579:19:HAL_SRAM_WriteOperation_Enable	16	static
+../lib/hal/src/stm32f4xx_hal_sram.c:601:19:HAL_SRAM_WriteOperation_Disable	16	static
+../lib/hal/src/stm32f4xx_hal_sram.c:645:23:HAL_SRAM_GetState	16	static

@@ -1,0 +1,13 @@
+../lib/hal/inc/core_cm4.h:1450:23:NVIC_EnableIRQ	16	static
+../appli/demo_camera.c:65:13:Camera_init	8	static
+../appli/demo_camera.c:75:6:Camera_reset	8	static
+../appli/demo_camera.c:85:11:Camera_statemachine	72	static
+../appli/demo_camera.c:217:9:DCMI_OV9655Config	16	static
+../appli/demo_camera.c:250:6:I2C1_Config	24	static
+../appli/demo_camera.c:293:6:DCMI_Config	48	static
+../appli/demo_camera.c:397:6:Camera_process_10ms	4	static
+../appli/demo_camera.c:408:6:DMA2_Stream1_IRQHandler	8	static
+../appli/demo_camera.c:418:6:HAL_DCMI_FrameEventCallback	16	static
+../appli/demo_camera.c:432:9:DCMI_SingleRandomWrite	32	static
+../appli/demo_camera.c:451:9:DCMI_SingleRandomRead	40	static
+../appli/demo_camera.c:468:6:HAL_DCMI_ErrorCallback	16	static
