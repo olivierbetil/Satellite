@@ -874,7 +874,6 @@ void nrf24_WriteReg(uint8_t Reg, uint8_t Data){
 	buf[1]=Data;
  80005a2:	79bb      	ldrb	r3, [r7, #6]
  80005a4:	737b      	strb	r3, [r7, #13]
-
 	selectCS();
  80005a6:	f7ff ffbf 	bl	8000528 <selectCS>
 	HAL_SPI_Transmit(&hspi1, buf, 2, 100);
@@ -1067,6 +1066,8 @@ void nrf24_TxMode(uint8_t *Address, uint8_t channel){
  80006e6:	2010      	movs	r0, #16
  80006e8:	f7ff ff6e 	bl	80005c8 <nrf24_WriteRegMulti>
 
+
+
 	//power up the device
 	uint8_t config = nrf24_ReadReg(CONFIG);
  80006ec:	2000      	movs	r0, #0
@@ -1084,6 +1085,7 @@ void nrf24_TxMode(uint8_t *Address, uint8_t channel){
  8000704:	f7ff ff40 	bl	8000588 <nrf24_WriteReg>
 	enableCE();
  8000708:	f7ff ff26 	bl	8000558 <enableCE>
+
 }
  800070c:	bf00      	nop
  800070e:	3710      	adds	r7, #16

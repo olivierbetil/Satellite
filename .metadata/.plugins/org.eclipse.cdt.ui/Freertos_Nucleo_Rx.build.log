@@ -1,6 +1,5 @@
-11:25:02 **** Incremental Build of configuration Debug for project Freertos_Nucleo_Rx ****
+17:43:05 **** Incremental Build of configuration Debug for project Freertos_Nucleo_Rx ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/file.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3 -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/file.d" -MT"Core/Src/file.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/file.o"
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3 -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "Freertos_Nucleo_Rx.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\olivi\Documents\GitHub\Satellite\Freertos_Nucleo_Rx\STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Freertos_Nucleo_Rx.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: Freertos_Nucleo_Rx.elf
@@ -8,11 +7,11 @@ Finished building target: Freertos_Nucleo_Rx.elf
 arm-none-eabi-size   Freertos_Nucleo_Rx.elf 
 arm-none-eabi-objdump -h -S  Freertos_Nucleo_Rx.elf  > "Freertos_Nucleo_Rx.list"
    text	   data	    bss	    dec	    hex	filename
-  17532	    144	   8848	  26524	   679c	Freertos_Nucleo_Rx.elf
+  17548	    132	   8884	  26564	   67c4	Freertos_Nucleo_Rx.elf
 Finished building: default.size.stdout
  
 Finished building: Freertos_Nucleo_Rx.list
  
 
-11:25:06 Build Finished. 0 errors, 0 warnings. (took 3s.537ms)
+17:43:06 Build Finished. 0 errors, 0 warnings. (took 876ms)
 

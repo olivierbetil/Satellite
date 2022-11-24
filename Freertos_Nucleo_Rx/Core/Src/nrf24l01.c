@@ -1,3 +1,11 @@
+/**
+ * @file nrf24l01.c
+ * @brief Librairie pour le module nrf24l01+
+ * @author Olivier BETIL
+ * @version 1.0
+ * @date 10/11/2022
+ */
+
 #include "stm32f1xx_hal.h"
 #include "nrf24l01.h"
 
@@ -9,22 +17,40 @@ extern SPI_HandleTypeDef hspi1;
 #define SPI_CS_GPIO			GPIOB
 #define SPI_CS_PIN			GPIO_PIN_6
 
+/**
+ * @brief met le pin CS à 0
+ */
 void selectCS(void){
 	HAL_GPIO_WritePin(SPI_CS_GPIO, SPI_CS_PIN, GPIO_PIN_RESET);
 }
 
+/**
+ * @brief met le pin CS à 1
+ */
 void unselectCS(void){
 	HAL_GPIO_WritePin(SPI_CS_GPIO, SPI_CS_PIN, GPIO_PIN_SET);
 }
 
+/**
+ * @brief met le pin CE à 1
+ */
 void enableCE(void){
 	HAL_GPIO_WritePin(SPI_CE_GPIO, SPI_CE_PIN, GPIO_PIN_SET);
 }
 
+/**
+ * @brief met le pin CE à 0
+ */
 void disableCE(void){
 	HAL_GPIO_WritePin(SPI_CE_GPIO, SPI_CE_PIN, GPIO_PIN_RESET);
 }
 
+/**
+ * @brief écrit une valeur dans un registre du module
+ *
+ * @param Reg : Registre à modifier
+ * @param Data : Donnée à écrire dans le registre
+ */
 void nrf24_WriteReg(uint8_t Reg, uint8_t Data){
 	uint8_t buf[2];
 	buf[0]=Reg|1<<5;
@@ -35,6 +61,14 @@ void nrf24_WriteReg(uint8_t Reg, uint8_t Data){
 	unselectCS();
 }
 
+
+/**
+ * @brief écrit une valeur de plus d'un octet dans un registre
+ *
+ * @param Reg : Registre à modifier
+ * @param Data : Donnée à écrire dans le registre
+ * @param size : Taille de la donnée (en octets)
+ */
 void nrf24_WriteRegMulti(uint8_t Reg, uint8_t *Data, uint8_t size){
 	uint8_t buf[2];
 	buf[0]=Reg|1<<5;
@@ -47,6 +81,13 @@ void nrf24_WriteRegMulti(uint8_t Reg, uint8_t *Data, uint8_t size){
 	unselectCS();
 }
 
+
+/**
+ * @brief lit la valeur d'un registre du module
+ *
+ * @param Reg : Registre où l'on veut lire la valeur
+ * @return la valeur du registre
+ */
 uint8_t nrf24_ReadReg(uint8_t Reg){
 	uint8_t data=0;
 	selectCS();
@@ -56,6 +97,13 @@ uint8_t nrf24_ReadReg(uint8_t Reg){
 	return data;
 }
 
+/**
+ * @brief lit la valeur d'un registre de plus d'un octet
+ *
+ * @param Reg : registre dont on veut la valeut
+ * @param data : pointeur vers là ou l'on enregistre la valeur du registre
+ * @param size : taille de la valeur à récuperer (en octets)
+ */
 void nrf24_ReadRegMulti(uint8_t Reg, uint8_t *data, uint16_t size){
 	//uint8_t data=0;
 	selectCS();
@@ -64,12 +112,20 @@ void nrf24_ReadRegMulti(uint8_t Reg, uint8_t *data, uint16_t size){
 	unselectCS();
 }
 
+/**
+ * @brief Envoie une commande au module
+ *
+ * @param cmd : Commande à envoyer (voir datasheet module pour liste des commandes)
+ */
 void nrfsendcmd(uint8_t cmd){
 	selectCS();
 	HAL_SPI_Transmit(&hspi1, &cmd, 1, 100);
 	unselectCS();
 }
 
+/**
+ * @brief Initialise les différents registre du module
+ */
 void nrf24_Init(void){
 	disableCE();
 	nrf24_WriteReg(CONFIG, 0);
@@ -82,6 +138,12 @@ void nrf24_Init(void){
 	enableCE();
 }
 
+/**
+ * @brief initialise le module en mode Tx (envoi de données)
+ *
+ * @param Address : l'adresse du module
+ * @param channel : chaîne du module (mettre à 10)
+ */
 void nrf24_TxMode(uint8_t *Address, uint8_t channel){
 	disableCE();
 	nrf24_WriteReg(RF_CH, channel);
@@ -94,6 +156,12 @@ void nrf24_TxMode(uint8_t *Address, uint8_t channel){
 	enableCE();
 }
 
+/**
+ * @brief envoie une donnée et confirme son envoi
+ *
+ * @param data : pointeur vers la donnée à envoyer (32 bits)
+ * @return true : donnée bien envoyée; false : donnée non envoyée
+ */
 uint8_t nrf24_Transmit(uint8_t *data){
 	uint8_t cmdtosend = 0;
 	selectCS();
@@ -121,6 +189,12 @@ uint8_t nrf24_Transmit(uint8_t *data){
 
 }
 
+/**
+ * @brief initialise le module en mode Rx (reception de données)
+ *
+ * @param Address : l'adresse du module
+ * @param channel : chaîne du module (mettre 10)
+ */
 void nrf24_RxMode(uint8_t *Address, uint8_t channel){
 	disableCE();
 	nrf24_WriteReg(RF_CH, channel);
@@ -138,6 +212,12 @@ void nrf24_RxMode(uint8_t *Address, uint8_t channel){
 	enableCE();
 }
 
+/**
+ * @brief observe si une donnée est arrivée dans la pipe
+ *
+ * @param pipenum : pipe à scuter
+ * @return true : donnée disponible; false : pas de donnée
+ */
 uint8_t isDataAvailable(uint8_t pipenum){
 	uint8_t status = nrf24_ReadReg(STATUS);
 
@@ -149,6 +229,11 @@ uint8_t isDataAvailable(uint8_t pipenum){
 		return 0;
 }
 
+/**
+ * @brief récupere la donnée dans la pipe 1
+ *
+ * @param data pointeur vers là ou l'on veut stocker la donnée (32 bits)
+ */
 void nrf24_Receive(uint8_t *data){
 	uint8_t cmdtosend = 0;
 	selectCS();
