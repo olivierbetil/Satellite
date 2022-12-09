@@ -1,0 +1,10 @@
+../lib/hal/src/stm32f4xx_hal_wwdg.c:150:19:HAL_WWDG_Init	16	static
+../lib/hal/src/stm32f4xx_hal_wwdg.c:191:19:HAL_WWDG_DeInit	16	static
+../lib/hal/src/stm32f4xx_hal_wwdg.c:231:13:HAL_WWDG_MspInit	16	static
+../lib/hal/src/stm32f4xx_hal_wwdg.c:243:13:HAL_WWDG_MspDeInit	16	static
+../lib/hal/src/stm32f4xx_hal_wwdg.c:276:19:HAL_WWDG_Start	16	static
+../lib/hal/src/stm32f4xx_hal_wwdg.c:302:19:HAL_WWDG_Start_IT	16	static
+../lib/hal/src/stm32f4xx_hal_wwdg.c:326:19:HAL_WWDG_Refresh	16	static
+../lib/hal/src/stm32f4xx_hal_wwdg.c:362:6:HAL_WWDG_IRQHandler	16	static
+../lib/hal/src/stm32f4xx_hal_wwdg.c:388:13:HAL_WWDG_WakeupCallback	16	static
+../lib/hal/src/stm32f4xx_hal_wwdg.c:419:23:HAL_WWDG_GetState	16	static

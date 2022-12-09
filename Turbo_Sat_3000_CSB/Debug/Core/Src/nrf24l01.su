@@ -12,4 +12,4 @@
 ../Core/Src/nrf24l01.c:166:9:nrf24_Transmit	24	static
 ../Core/Src/nrf24l01.c:199:6:nrf24_RxMode	24	static
 ../Core/Src/nrf24l01.c:222:9:isDataAvailable	24	static
-../Core/Src/nrf24l01.c:238:6:nrf24_Receive	24	static
+../Core/Src/nrf24l01.c:240:6:nrf24_Receive	24	static

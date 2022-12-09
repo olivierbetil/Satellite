@@ -1,0 +1,17 @@
+../lib/hal/inc/core_cm4.h:1450:23:NVIC_EnableIRQ	16	static
+../lib/hal/inc/core_cm4.h:1462:23:NVIC_DisableIRQ	16	static
+../lib/bsp/stm32f4_uart.c:94:6:UART_init	16	static
+../lib/bsp/stm32f4_uart.c:131:6:UART_DeInit	16	static
+../lib/bsp/stm32f4_uart.c:141:8:UART_data_ready	16	static
+../lib/bsp/stm32f4_uart.c:150:9:UART_get_next_byte	24	static
+../lib/bsp/stm32f4_uart.c:176:9:UART_getc	24	static
+../lib/bsp/stm32f4_uart.c:191:6:UART_putc	24	static
+../lib/bsp/stm32f4_uart.c:202:6:UART_test	16	static
+../lib/bsp/stm32f4_uart.c:227:6:USART1_IRQHandler	8	static
+../lib/bsp/stm32f4_uart.c:231:6:USART2_IRQHandler	8	static
+../lib/bsp/stm32f4_uart.c:235:6:USART3_IRQHandler	8	static
+../lib/bsp/stm32f4_uart.c:239:6:UART4_IRQHandler	8	static
+../lib/bsp/stm32f4_uart.c:243:6:UART5_IRQHandler	8	static
+../lib/bsp/stm32f4_uart.c:247:6:USART6_IRQHandler	8	static
+../lib/bsp/stm32f4_uart.c:251:6:HAL_UART_RxCpltCallback	24	static
+../lib/bsp/stm32f4_uart.c:280:6:HAL_UART_MspInit	80	static

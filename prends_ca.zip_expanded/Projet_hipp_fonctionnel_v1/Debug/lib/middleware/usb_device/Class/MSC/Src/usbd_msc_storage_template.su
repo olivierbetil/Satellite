@@ -1,0 +1,7 @@
+../lib/middleware/usb_device/Class/MSC/Src/usbd_msc_storage_template.c:82:8:STORAGE_Init	16	static
+../lib/middleware/usb_device/Class/MSC/Src/usbd_msc_storage_template.c:93:8:STORAGE_GetCapacity	24	static
+../lib/middleware/usb_device/Class/MSC/Src/usbd_msc_storage_template.c:107:8:STORAGE_IsReady	16	static
+../lib/middleware/usb_device/Class/MSC/Src/usbd_msc_storage_template.c:118:8:STORAGE_IsWriteProtected	16	static
+../lib/middleware/usb_device/Class/MSC/Src/usbd_msc_storage_template.c:129:8:STORAGE_Read	24	static
+../lib/middleware/usb_device/Class/MSC/Src/usbd_msc_storage_template.c:140:8:STORAGE_Write	24	static
+../lib/middleware/usb_device/Class/MSC/Src/usbd_msc_storage_template.c:151:8:STORAGE_GetMaxLun	4	static

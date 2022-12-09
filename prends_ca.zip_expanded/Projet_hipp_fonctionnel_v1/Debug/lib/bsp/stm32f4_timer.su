@@ -1,0 +1,3 @@
+../lib/bsp/stm32f4_timer.c:23:6:TIM2_IRQHandler	8	static
+../lib/bsp/stm32f4_timer.c:35:13:TIMER2_user_handler_it_1ms	4	static
+../lib/bsp/stm32f4_timer.c:47:6:TIMER2_run_1ms	16	static

@@ -222,6 +222,8 @@ void nrf24_RxMode(uint8_t *Address, uint8_t channel){
 uint8_t isDataAvailable(uint8_t pipenum){
 	uint8_t status = nrf24_ReadReg(STATUS);
 
+	uint8_t check = nrf24_ReadReg(RF_SETUP);
+
 	if((status&(1<<6)) && (status&(pipenum<<1))){
 		nrf24_WriteReg(STATUS, (1<<6));
 		return 1;
@@ -242,7 +244,7 @@ void nrf24_Receive(uint8_t *data){
 	cmdtosend=R_RX_PAYLOAD;
 	HAL_SPI_Transmit(SPI_PROTO, &cmdtosend, 1, 100);
 
-	HAL_SPI_Receive(SPI_PROTO, data, 1, 5);
+	HAL_SPI_Receive(SPI_PROTO, data, 32, 5);
 
 	unselectCS();
 

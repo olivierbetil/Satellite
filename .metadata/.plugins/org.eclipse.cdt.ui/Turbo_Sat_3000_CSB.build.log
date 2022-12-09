@@ -1,51 +1,10 @@
-08:12:17 **** Incremental Build of configuration Debug for project Turbo_Sat_3000_CSB ****
+17:31:01 **** Incremental Build of configuration Debug for project Turbo_Sat_3000_CSB ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/nrf24l01.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/nrf24l01.d" -MT"Core/Src/nrf24l01.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/nrf24l01.o"
-../Core/Src/main.c: In function 'SPI_Rx_App':
-../Core/Src/main.c:680:18: warning: passing argument 1 of 'nrf24_Receive' makes pointer from integer without a cast [-Wint-conversion]
-  680 |    nrf24_Receive(SPI_Buffer);
-      |                  ^~~~~~~~~~
-      |                  |
-      |                  uint8_t {aka unsigned char}
-In file included from ../Core/Src/main.c:26:
-../Core/Inc/nrf24l01.h:11:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
-   11 | void nrf24_Receive (uint8_t *data);
-      |                     ~~~~~~~~~^~~~
-../Core/Src/main.c: In function 'UART_Send_App':
-../Core/Src/main.c:706:31: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
-  706 |    HAL_UART_Transmit(&huart2, UART_Buffer, 1, 5);
-      |                               ^~~~~~~~~~~
-      |                               |
-      |                               uint8_t {aka unsigned char}
-In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
-                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.c:20:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
-  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
-      |                                                                ~~~~~~~~~~~~~~~^~~~~
-../Core/Src/main.c: In function 'SPI_Tx_App':
-../Core/Src/main.c:753:23: warning: passing argument 1 of 'nrf24_Transmit' makes pointer from integer without a cast [-Wint-conversion]
-  753 |     if(nrf24_Transmit(SPI_Buffer)==1)
-      |                       ^~~~~~~~~~
-      |                       |
-      |                       uint8_t {aka unsigned char}
-In file included from ../Core/Src/main.c:26:
-../Core/Inc/nrf24l01.h:7:34: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
-    7 | uint8_t nrf24_Transmit (uint8_t *data);
-      |                         ~~~~~~~~~^~~~
-arm-none-eabi-gcc -o "Turbo_Sat_3000_CSB.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\olivi\Documents\GitHub\Satellite\Turbo_Sat_3000_CSB\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Turbo_Sat_3000_CSB.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Turbo_Sat_3000_CSB.elf
- 
 arm-none-eabi-size   Turbo_Sat_3000_CSB.elf 
-arm-none-eabi-objdump -h -S  Turbo_Sat_3000_CSB.elf  > "Turbo_Sat_3000_CSB.list"
    text	   data	    bss	    dec	    hex	filename
-  53108	    168	  20424	  73700	  11fe4	Turbo_Sat_3000_CSB.elf
+  53332	    204	  21476	  75012	  12504	Turbo_Sat_3000_CSB.elf
 Finished building: default.size.stdout
  
-Finished building: Turbo_Sat_3000_CSB.list
- 
 
-08:12:19 Build Finished. 0 errors, 3 warnings. (took 1s.623ms)
+17:31:02 Build Finished. 0 errors, 0 warnings. (took 529ms)
 
