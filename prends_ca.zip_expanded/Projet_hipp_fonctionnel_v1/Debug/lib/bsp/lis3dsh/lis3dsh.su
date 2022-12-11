@@ -1,9 +1,0 @@
-../lib/bsp/lis3dsh/lis3dsh.c:120:6:LIS3DSH_Init	24	static
-../lib/bsp/lis3dsh/lis3dsh.c:145:9:LIS3DSH_ReadID	16	static
-../lib/bsp/lis3dsh/lis3dsh.c:165:6:LIS3DSH_InterruptConfig	24	static
-../lib/bsp/lis3dsh/lis3dsh.c:197:6:LIS3DSH_Click_IntConfig	16	static
-../lib/bsp/lis3dsh/lis3dsh.c:255:6:LIS3DSH_ODR_LowpowerCmd	24	static
-../lib/bsp/lis3dsh/lis3dsh.c:285:6:LIS3DSH_DataRateCmd	24	static
-../lib/bsp/lis3dsh/lis3dsh.c:311:6:LIS3DSH_FullScaleCmd	24	static
-../lib/bsp/lis3dsh/lis3dsh.c:331:6:LIS3DSH_RebootCmd	16	static
-../lib/bsp/lis3dsh/lis3dsh.c:350:6:LIS3DSH_ReadACC	48	static

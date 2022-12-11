@@ -1,2 +1,0 @@
-../lib/hal/src/stm32f4xx_hal_rcc_ex.c:972:19:HAL_RCCEx_PeriphCLKConfig	64	static,ignoring_inline_asm
-../lib/hal/src/stm32f4xx_hal_rcc_ex.c:1082:6:HAL_RCCEx_GetPeriphCLKConfig	56	static,ignoring_inline_asm

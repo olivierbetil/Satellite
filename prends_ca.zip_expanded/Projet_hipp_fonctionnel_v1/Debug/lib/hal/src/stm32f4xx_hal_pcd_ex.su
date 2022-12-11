@@ -1,2 +1,0 @@
-../lib/hal/src/stm32f4xx_hal_pcd_ex.c:87:19:HAL_PCDEx_SetTxFiFo	24	static
-../lib/hal/src/stm32f4xx_hal_pcd_ex.c:126:19:HAL_PCDEx_SetRxFiFo	16	static

@@ -1,9 +1,0 @@
-../lib/bsp/stm32f4_accelerometer.c:104:9:BSP_ACCELERO_Init	32	static
-../lib/bsp/stm32f4_accelerometer.c:186:6:BSP_ACCELERO_Sleep	8	static
-../lib/bsp/stm32f4_accelerometer.c:193:6:BSP_ACCELERO_output_on_opendrain	16	static
-../lib/bsp/stm32f4_accelerometer.c:207:9:BSP_ACCELERO_ReadID	16	static
-../lib/bsp/stm32f4_accelerometer.c:221:6:BSP_ACCELERO_Reset	8	static
-../lib/bsp/stm32f4_accelerometer.c:227:6:BSP_ACCELERO_DeInit	8	static
-../lib/bsp/stm32f4_accelerometer.c:238:6:BSP_ACCELERO_Click_ITConfig	8	static
-../lib/bsp/stm32f4_accelerometer.c:249:6:BSP_ACCELERO_Click_ITClear	8	static
-../lib/bsp/stm32f4_accelerometer.c:261:6:BSP_ACCELERO_GetXYZ	24	static

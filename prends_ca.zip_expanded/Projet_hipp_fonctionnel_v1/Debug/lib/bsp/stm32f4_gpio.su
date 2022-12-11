@@ -1,2 +1,0 @@
-../lib/bsp/stm32f4_gpio.c:18:6:GPIO_Configure	40	static
-../lib/bsp/stm32f4_gpio.c:44:6:BSP_GPIO_PinCfg	48	static

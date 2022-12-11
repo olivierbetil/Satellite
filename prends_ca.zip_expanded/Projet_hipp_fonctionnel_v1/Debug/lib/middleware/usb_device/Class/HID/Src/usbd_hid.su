@@ -1,8 +1,0 @@
-../lib/middleware/usb_device/Class/HID/Src/usbd_hid.c:361:16:USBD_HID_Init	24	static
-../lib/middleware/usb_device/Class/HID/Src/usbd_hid.c:387:16:USBD_HID_DeInit	16	static
-../lib/middleware/usb_device/Class/HID/Src/usbd_hid.c:408:16:USBD_HID_Setup	32	static
-../lib/middleware/usb_device/Class/HID/Src/usbd_hid.c:474:9:USBD_HID_SendReport	32	static
-../lib/middleware/usb_device/Class/HID/Src/usbd_hid.c:493:10:USBD_HID_GetPollingInterval	24	static
-../lib/middleware/usb_device/Class/HID/Src/usbd_hid.c:519:17:USBD_HID_GetCfgDesc	16	static
-../lib/middleware/usb_device/Class/HID/Src/usbd_hid.c:531:16:USBD_HID_DataIn	16	static
-../lib/middleware/usb_device/Class/HID/Src/usbd_hid.c:545:17:USBD_HID_GetDeviceQualifierDesc	16	static

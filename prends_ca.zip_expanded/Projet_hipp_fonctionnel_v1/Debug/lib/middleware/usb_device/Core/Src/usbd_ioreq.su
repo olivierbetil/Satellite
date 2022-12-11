@@ -1,7 +1,0 @@
-../lib/middleware/usb_device/Core/Src/usbd_ioreq.c:89:20:USBD_CtlSendData	24	static
-../lib/middleware/usb_device/Core/Src/usbd_ioreq.c:109:20:USBD_CtlContinueSendData	24	static
-../lib/middleware/usb_device/Core/Src/usbd_ioreq.c:125:20:USBD_CtlPrepareRx	24	static
-../lib/middleware/usb_device/Core/Src/usbd_ioreq.c:145:20:USBD_CtlContinueRx	24	static
-../lib/middleware/usb_device/Core/Src/usbd_ioreq.c:157:20:USBD_CtlSendStatus	16	static
-../lib/middleware/usb_device/Core/Src/usbd_ioreq.c:174:20:USBD_CtlReceiveStatus	16	static
-../lib/middleware/usb_device/Core/Src/usbd_ioreq.c:192:10:USBD_GetRxCount	16	static
