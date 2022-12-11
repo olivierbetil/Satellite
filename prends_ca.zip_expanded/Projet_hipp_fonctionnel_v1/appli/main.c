@@ -82,7 +82,8 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef *hspi)
  * @param  None
  * @retval None
  */
-int main(void) {
+int main(void)
+	{
 	HAL_Init();
 	SYS_init();			//initialisation du systeme (horloge...)
 	GPIO_Configure();	//Configuration des broches d'entree-sortie.
@@ -102,13 +103,16 @@ int main(void) {
 	uint8_t data[32]="helloworld";
 	nrf24_Init();
 	nrf24_TxMode(Address, 10);
-	if(nrf24_Transmit(data) == 1){
+	if(nrf24_Transmit(data) == 1)
+	{
 		//L'info c'est bien envoyé
 	}
 
-	while (1) {
+	while (1)
+	{
 		Camera_statemachine(FALSE, MODE_CAMERA_TO_SRAM);
-		if(nrf24_Transmit(data) == 1){
+		if(nrf24_Transmit(data) == 1)
+		{
 				//L'info c'est bien envoyé
 		}
 	}
