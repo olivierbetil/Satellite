@@ -55,6 +55,7 @@ uint8_t Address[]={0xEE, 0xDD, 0xCC, 0xBB, 0xAA};
  uint8_t buffer[32];
  uint8_t init = 1;
 uint8_t hello[32]="hello world";
+uint32_t compteurPixel=0;
  typedef enum
  {
  	RX,
@@ -475,7 +476,7 @@ void stateMachine(void)
 			nrf24_Receive(buffer);
 			HAL_USART_Transmit(&husart2, buffer, 32, 100);
 		}
-		HAL_USART_Transmit(&husart2, hello, 32, 100);
+		//HAL_USART_Transmit(&husart2, hello, 32, 100);
 		break;
 
 	case TX:
