@@ -1,0 +1,15 @@
+../lib/bsp/stm32f4_lcd.c:138:6:LCD_DeInit	16	static
+../lib/bsp/stm32f4_lcd.c:187:6:LCD_CtrlLinesConfig	32	static
+../lib/bsp/stm32f4_lcd.c:227:6:LCD_FSMCConfig	96	static
+../lib/bsp/stm32f4_lcd.c:286:6:STM32f4_Discovery_LCD_Init	16	static
+../lib/bsp/stm32f4_lcd.c:373:8:LCD_is_initialized	4	static
+../lib/bsp/stm32f4_lcd.c:382:6:LCD_SetCursor	16	static
+../lib/bsp/stm32f4_lcd.c:396:6:LCD_WriteReg	16	static
+../lib/bsp/stm32f4_lcd.c:408:10:LCD_ReadReg	16	static
+../lib/bsp/stm32f4_lcd.c:420:6:LCD_WriteRAM_Prepare	4	static
+../lib/bsp/stm32f4_lcd.c:429:6:LCD_WriteRAM	16	static
+../lib/bsp/stm32f4_lcd.c:439:10:LCD_ReadRAM	4	static
+../lib/bsp/stm32f4_lcd.c:450:6:LCD_RGB_Test	16	static
+../lib/bsp/stm32f4_lcd.c:480:6:LCD_SetDisplayWindow	32	static
+../lib/bsp/stm32f4_lcd.c:507:6:LCD_WindowModeDisable	8	static
+../lib/bsp/stm32f4_lcd.c:518:13:delay	24	static

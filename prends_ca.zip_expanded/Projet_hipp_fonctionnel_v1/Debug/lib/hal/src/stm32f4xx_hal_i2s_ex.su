@@ -1,0 +1,12 @@
+../lib/hal/src/stm32f4xx_hal_i2s_ex.c:185:19:HAL_I2S_Init	40	static
+../lib/hal/src/stm32f4xx_hal_i2s_ex.c:344:19:HAL_I2SEx_TransmitReceive	40	static
+../lib/hal/src/stm32f4xx_hal_i2s_ex.c:500:19:HAL_I2SEx_TransmitReceive_IT	32	static
+../lib/hal/src/stm32f4xx_hal_i2s_ex.c:613:19:HAL_I2SEx_TransmitReceive_DMA	40	static
+../lib/hal/src/stm32f4xx_hal_i2s_ex.c:749:19:HAL_I2S_DMAPause	16	static
+../lib/hal/src/stm32f4xx_hal_i2s_ex.c:786:19:HAL_I2S_DMAResume	16	static
+../lib/hal/src/stm32f4xx_hal_i2s_ex.c:829:19:HAL_I2S_DMAStop	16	static
+../lib/hal/src/stm32f4xx_hal_i2s_ex.c:873:6:HAL_I2S_IRQHandler	48	static
+../lib/hal/src/stm32f4xx_hal_i2s_ex.c:1030:19:I2SEx_TransmitReceive_IT	24	static
+../lib/hal/src/stm32f4xx_hal_i2s_ex.c:1125:6:I2S_DMATxCplt	24	static
+../lib/hal/src/stm32f4xx_hal_i2s_ex.c:1159:6:I2S_DMARxCplt	24	static
+../lib/hal/src/stm32f4xx_hal_i2s_ex.c:1192:10:I2S_GetInputClock	32	static

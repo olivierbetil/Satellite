@@ -1,0 +1,10 @@
+../lib/bsp/stm32f4_spi.c:25:6:SPI_Init	48	static
+../lib/bsp/stm32f4_spi.c:76:9:SPI_ReadNoRegister	24	static
+../lib/bsp/stm32f4_spi.c:91:6:SPI_ReadMultiNoRegister	32	static
+../lib/bsp/stm32f4_spi.c:102:6:SPI_WriteNoRegister	24	static
+../lib/bsp/stm32f4_spi.c:108:6:SPI_WriteAndReadNoRegister	40	static
+../lib/bsp/stm32f4_spi.c:115:6:SPI_WriteAndReadMultiNoRegister	40	static
+../lib/bsp/stm32f4_spi.c:128:6:SPI_WriteMultiNoRegister	32	static
+../lib/bsp/stm32f4_spi.c:141:19:TM_SPI_SetDataSize	24	static
+../lib/bsp/stm32f4_spi.c:175:6:SPI_Cmd	16	static
+../lib/bsp/stm32f4_spi.c:195:6:SPI_setBaudRate	24	static

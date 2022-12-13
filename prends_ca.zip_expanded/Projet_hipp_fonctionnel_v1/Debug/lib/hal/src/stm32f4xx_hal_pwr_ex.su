@@ -1,0 +1,6 @@
+../lib/hal/src/stm32f4xx_hal_pwr_ex.c:160:19:HAL_PWREx_EnableBkUpReg	32	static,ignoring_inline_asm
+../lib/hal/src/stm32f4xx_hal_pwr_ex.c:181:19:HAL_PWREx_DisableBkUpReg	32	static,ignoring_inline_asm
+../lib/hal/src/stm32f4xx_hal_pwr_ex.c:202:6:HAL_PWREx_EnableFlashPowerDown	24	static,ignoring_inline_asm
+../lib/hal/src/stm32f4xx_hal_pwr_ex.c:210:6:HAL_PWREx_DisableFlashPowerDown	24	static,ignoring_inline_asm
+../lib/hal/src/stm32f4xx_hal_pwr_ex.c:222:10:HAL_PWREx_GetVoltageRange	4	static
+../lib/hal/src/stm32f4xx_hal_pwr_ex.c:242:19:HAL_PWREx_ControlVoltageScaling	32	static
