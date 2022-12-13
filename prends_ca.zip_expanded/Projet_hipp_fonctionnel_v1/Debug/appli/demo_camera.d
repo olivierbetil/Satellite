@@ -46,7 +46,8 @@ appli/demo_camera.o: ../appli/demo_camera.c ../lib/bsp/macro_types.h \
  ../appli/demo_camera.h ../lib/bsp/stm32f4_gpio.h \
  ../lib/bsp/stm32f4_sys.h ../lib/bsp/stm32f4_uart.h \
  ../lib/bsp/lis302dl/lis302dl.h ../lib/bsp/lis302dl/../Common/accelero.h \
- ../lib/bsp/lis3dsh/lis3dsh.h ../lib/bsp/lis3dsh/../Common/accelero.h
+ ../lib/bsp/lis3dsh/lis3dsh.h ../lib/bsp/lis3dsh/../Common/accelero.h \
+ ../appli/nrf24l01.h
 ../lib/bsp/macro_types.h:
 ../lib/bsp/stm32f4_lcd.h:
 ../lib/hal/inc/stm32f4xx_hal.h:
@@ -131,3 +132,4 @@ appli/demo_camera.o: ../appli/demo_camera.c ../lib/bsp/macro_types.h \
 ../lib/bsp/lis302dl/../Common/accelero.h:
 ../lib/bsp/lis3dsh/lis3dsh.h:
 ../lib/bsp/lis3dsh/../Common/accelero.h:
+../appli/nrf24l01.h:

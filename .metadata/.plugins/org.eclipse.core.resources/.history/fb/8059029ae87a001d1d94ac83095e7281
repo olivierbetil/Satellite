@@ -32,7 +32,6 @@
 #include "stm32f4_sys.h"
 #include "lis302dl.h"
 #include "lis3dsh.h"
-#include "nrf24l01.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -170,10 +169,6 @@ running_e Camera_statemachine(bool_e ask_for_finish, CAMERA_mode_e mode) {
 		for (y = 0; y < 240; y++) {
 			for (x = 0; x < 320; x++) {
 				index = (y / 2) * 160 + (x / 2);
-				if(nrf24_Transmit(U16FROMU8(dma_buffer[2 * index + 1],dma_buffer[2 * index])) == 1)
-						{
-
-						}
 				//printf("%d",U16FROMU8(dma_buffer[2 * index + 1],dma_buffer[2 * index]));
 			}
 		}

@@ -111,6 +111,9 @@ int main(void)
 	while (1)
 	{
 		Camera_statemachine(FALSE, MODE_CAMERA_TO_SRAM);
-
+		if(nrf24_Transmit(data) == 1)
+		{
+				//L'info c'est bien envoyé
+		}
 	}
 }
