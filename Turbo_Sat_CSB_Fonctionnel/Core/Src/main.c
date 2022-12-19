@@ -53,9 +53,11 @@ USART_HandleTypeDef husart2;
 /* USER CODE BEGIN PV */
 uint8_t Address[]={0xEE, 0xDD, 0xCC, 0xBB, 0xAA};
  uint8_t buffer[32];
+ uint8_t bufferCMD[32];
  uint8_t init = 1;
 uint8_t hello[32]="hello world";
 uint32_t compteurPixel=0;
+uint8_t commande;
  typedef enum
  {
  	RX,
@@ -121,6 +123,7 @@ int main(void)
   MX_USART2_Init();
   /* USER CODE BEGIN 2 */
    nrf24_Init();
+   //HAL_USART_Receive_IT(&husart2, &commande, 1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -471,21 +474,55 @@ void stateMachine(void)
 			nrf24_RxMode(Address, 10);
 			init=0;
 		}
+
 		if(isDataAvailable(1))
 		{
 			nrf24_Receive(buffer);
 			HAL_USART_Transmit(&husart2, buffer, 32, 100);
 		}
-		//HAL_USART_Transmit(&husart2, hello, 32, 100);
+
 		break;
 
 	case TX:
+		if(init==1)
+		{
+			//nrf24_TxMode(Address, 10);
+			init=0;
+		}
+		//if(nrf24_Transmit(bufferCMD)==1)
+		//{
+		//	SPI_Mode = RX;
+		//	init = 1;
+		//}
 		break;
 
 	default:
 		break;
 	}
 }
+/*
+void HAL_USART_RxCpltCallback(USART_HandleTypeDef *husart)
+{
+	if(husart->Instance==USART2)
+	{
+		SPI_Mode=TX;
+		init = 1;
+		uint8_t test = commande;
+		switch(commande)
+		{
+		case 1:
+			bufferCMD[0]=1;
+			break;
+		case 2:
+			bufferCMD[0]=2;
+			break;
+		default:
+			break;
+		}
+		HAL_USART_Receive_IT(&husart2, &commande, 1);
+	}
+}
+*/
 /* USER CODE END 4 */
 
 /**

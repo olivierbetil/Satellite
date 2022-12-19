@@ -12,6 +12,10 @@
 		<item key="caseSensitive" value="false"/>
 		<item key="searchFlags" value="227191"/>
 		<list key="previousPatterns">
+			<item value="HAL_USART_MspInit"/>
+			<item value="RXCPLT"/>
+			<item value="USART2"/>
+			<item value="USART2_TX"/>
 			<item value="HAL_SPI_MspInit"/>
 		</list>
 	</section>

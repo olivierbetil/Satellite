@@ -100,17 +100,12 @@ int main(void)
 
 	MX_SPI2_Init(); // Initialisation SPI2
 	uint8_t Address[]={0xEE, 0xDD, 0xCC, 0xBB, 0xAA};
-	uint8_t data[32]="helloworld";
 	nrf24_Init();
 	nrf24_TxMode(Address, 10);
-	if(nrf24_Transmit(data) == 1)
-	{
-		//L'info c'est bien envoyé
-	}
 
 	while (1)
 	{
-		Camera_statemachine(FALSE, MODE_CAMERA_TO_SRAM);
+			Camera_statemachine(FALSE, MODE_CAMERA_TO_SRAM);
 
 	}
 }

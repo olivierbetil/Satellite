@@ -1,6 +1,84 @@
-14:49:26 **** Incremental Build of configuration Debug for project Turbo_Sat_CSB_Fonctionnel ****
+18:42:30 **** Incremental Build of configuration Debug for project Projet_hipp_fonctionnel_v1 ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../USB_HOST/App -I../USB_HOST/Target -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../appli/demo_camera.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F407VGTx -DSTM32F4 -DSTM32F4DISCOVERY -DSTM32 -DDEBUG -c -I../appli -I../lib/hal/inc -I../lib/bsp -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/lis302dl -I../lib/bsp/lis3dsh -I../lib/bsp/audio -I../lib/bsp/ov9655 -I../lib/bsp/stmpe811 -I../lib/bsp/LCD -I../lib/middleware/ -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../lib/middleware/webserver -I../lib/middleware/webserver/lwip -I../lib/middleware/webserver/lwip/src/include -I../lib/middleware/webserver/lwip/system -I../lib/middleware/webserver/lwip/src/include/ipv4 -I../lib/middleware/webserver/lwip/src/include/lwip -I../lib/middleware/webserver/lwip/port -I../lib/middleware/webserver/STD_lib -I../lib/middleware/usb_device/Class/HID/Inc -I../lib/middleware/usb_device/Class/MSC/Inc -I../lib/middleware/usb_device/Core/Inc -I../lib/middleware/usb_host/Class/MSC/Inc -I../lib/middleware/usb_host/Core/Inc -I../lib/middleware/usb_host/Class/HID/Inc -I../lib/middleware/usb_host/ -I../lib/middleware/PDM -O0 -ffunction-sections -Wall -fstack-usage -MMD -MP -MF"appli/demo_camera.d" -MT"appli/demo_camera.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "appli/demo_camera.o"
+arm-none-eabi-gcc -o "Projet_hipp_fonctionnel_v1.elf" @"objects.list"  -lPDMFilter_CM4_GCC -mcpu=cortex-m4 -T"../lib/LinkerScript.ld" --specs=nosys.specs -Wl,-Map="Projet_hipp_fonctionnel_v1.map" -Wl,--gc-sections -static -L../lib/middleware/PDM --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Projet_hipp_fonctionnel_v1.elf
+ 
+arm-none-eabi-size   Projet_hipp_fonctionnel_v1.elf 
+arm-none-eabi-objdump -h -S  Projet_hipp_fonctionnel_v1.elf  > "Projet_hipp_fonctionnel_v1.list"
+arm-none-eabi-objcopy  -O binary  Projet_hipp_fonctionnel_v1.elf  "Projet_hipp_fonctionnel_v1.bin"
+   text	   data	    bss	    dec	    hex	filename
+  56484	    284	  73016	 129784	  1faf8	Projet_hipp_fonctionnel_v1.elf
+Finished building: default.size.stdout
+ 
+Finished building: Projet_hipp_fonctionnel_v1.bin
+ 
+Finished building: Projet_hipp_fonctionnel_v1.list
+ 
+18:44:38 **** Incremental Build of configuration Debug for project Projet_hipp_fonctionnel_v1 ****
+make -j8 all 
+arm-none-eabi-gcc "../appli/demo_camera.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F407VGTx -DSTM32F4 -DSTM32F4DISCOVERY -DSTM32 -DDEBUG -c -I../appli -I../lib/hal/inc -I../lib/bsp -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/lis302dl -I../lib/bsp/lis3dsh -I../lib/bsp/audio -I../lib/bsp/ov9655 -I../lib/bsp/stmpe811 -I../lib/bsp/LCD -I../lib/middleware/ -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../lib/middleware/webserver -I../lib/middleware/webserver/lwip -I../lib/middleware/webserver/lwip/src/include -I../lib/middleware/webserver/lwip/system -I../lib/middleware/webserver/lwip/src/include/ipv4 -I../lib/middleware/webserver/lwip/src/include/lwip -I../lib/middleware/webserver/lwip/port -I../lib/middleware/webserver/STD_lib -I../lib/middleware/usb_device/Class/HID/Inc -I../lib/middleware/usb_device/Class/MSC/Inc -I../lib/middleware/usb_device/Core/Inc -I../lib/middleware/usb_host/Class/MSC/Inc -I../lib/middleware/usb_host/Core/Inc -I../lib/middleware/usb_host/Class/HID/Inc -I../lib/middleware/usb_host/ -I../lib/middleware/PDM -O0 -ffunction-sections -Wall -fstack-usage -MMD -MP -MF"appli/demo_camera.d" -MT"appli/demo_camera.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "appli/demo_camera.o"
+arm-none-eabi-gcc -o "Projet_hipp_fonctionnel_v1.elf" @"objects.list"  -lPDMFilter_CM4_GCC -mcpu=cortex-m4 -T"../lib/LinkerScript.ld" --specs=nosys.specs -Wl,-Map="Projet_hipp_fonctionnel_v1.map" -Wl,--gc-sections -static -L../lib/middleware/PDM --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Projet_hipp_fonctionnel_v1.elf
+ 
+arm-none-eabi-size   Projet_hipp_fonctionnel_v1.elf 
+arm-none-eabi-objdump -h -S  Projet_hipp_fonctionnel_v1.elf  > "Projet_hipp_fonctionnel_v1.list"
+arm-none-eabi-objcopy  -O binary  Projet_hipp_fonctionnel_v1.elf  "Projet_hipp_fonctionnel_v1.bin"
+   text	   data	    bss	    dec	    hex	filename
+  56440	    284	  73016	 129740	  1facc	Projet_hipp_fonctionnel_v1.elf
+Finished building: default.size.stdout
+ 
+Finished building: Projet_hipp_fonctionnel_v1.bin
+ 
+Finished building: Projet_hipp_fonctionnel_v1.list
+ 
+10:12:16 **** Incremental Build of configuration Debug for project Projet_hipp_fonctionnel_v1 ****
+make -j8 all 
+arm-none-eabi-gcc "../appli/demo_camera.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F407VGTx -DSTM32F4 -DSTM32F4DISCOVERY -DSTM32 -DDEBUG -c -I../appli -I../lib/hal/inc -I../lib/bsp -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/lis302dl -I../lib/bsp/lis3dsh -I../lib/bsp/audio -I../lib/bsp/ov9655 -I../lib/bsp/stmpe811 -I../lib/bsp/LCD -I../lib/middleware/ -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../lib/middleware/webserver -I../lib/middleware/webserver/lwip -I../lib/middleware/webserver/lwip/src/include -I../lib/middleware/webserver/lwip/system -I../lib/middleware/webserver/lwip/src/include/ipv4 -I../lib/middleware/webserver/lwip/src/include/lwip -I../lib/middleware/webserver/lwip/port -I../lib/middleware/webserver/STD_lib -I../lib/middleware/usb_device/Class/HID/Inc -I../lib/middleware/usb_device/Class/MSC/Inc -I../lib/middleware/usb_device/Core/Inc -I../lib/middleware/usb_host/Class/MSC/Inc -I../lib/middleware/usb_host/Core/Inc -I../lib/middleware/usb_host/Class/HID/Inc -I../lib/middleware/usb_host/ -I../lib/middleware/PDM -O0 -ffunction-sections -Wall -fstack-usage -MMD -MP -MF"appli/demo_camera.d" -MT"appli/demo_camera.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "appli/demo_camera.o"
+arm-none-eabi-gcc -o "Projet_hipp_fonctionnel_v1.elf" @"objects.list"  -lPDMFilter_CM4_GCC -mcpu=cortex-m4 -T"../lib/LinkerScript.ld" --specs=nosys.specs -Wl,-Map="Projet_hipp_fonctionnel_v1.map" -Wl,--gc-sections -static -L../lib/middleware/PDM --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Projet_hipp_fonctionnel_v1.elf
+ 
+arm-none-eabi-size   Projet_hipp_fonctionnel_v1.elf 
+arm-none-eabi-objdump -h -S  Projet_hipp_fonctionnel_v1.elf  > "Projet_hipp_fonctionnel_v1.list"
+arm-none-eabi-objcopy  -O binary  Projet_hipp_fonctionnel_v1.elf  "Projet_hipp_fonctionnel_v1.bin"
+   text	   data	    bss	    dec	    hex	filename
+  56440	    284	  73016	 129740	  1facc	Projet_hipp_fonctionnel_v1.elf
+Finished building: default.size.stdout
+ 
+Finished building: Projet_hipp_fonctionnel_v1.bin
+ 
+Finished building: Projet_hipp_fonctionnel_v1.list
+ 
+10:15:46 **** Incremental Build of configuration Debug for project Projet_hipp_fonctionnel_v1 ****
+make -j8 all 
+arm-none-eabi-size   Projet_hipp_fonctionnel_v1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56440	    284	  73016	 129740	  1facc	Projet_hipp_fonctionnel_v1.elf
+Finished building: default.size.stdout
+ 
+10:28:27 **** Incremental Build of configuration Debug for project Projet_hipp_fonctionnel_v1 ****
+make -j8 all 
+arm-none-eabi-size   Projet_hipp_fonctionnel_v1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56440	    284	  73016	 129740	  1facc	Projet_hipp_fonctionnel_v1.elf
+Finished building: default.size.stdout
+ 
+10:37:10 **** Incremental Build of configuration Debug for project Projet_hipp_fonctionnel_v1 ****
+make -j8 all 
+arm-none-eabi-size   Projet_hipp_fonctionnel_v1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56440	    284	  73016	 129740	  1facc	Projet_hipp_fonctionnel_v1.elf
+Finished building: default.size.stdout
+ 
+10:39:12 **** Incremental Build of configuration Debug for project Projet_hipp_fonctionnel_v1 ****
+make -j8 all 
+arm-none-eabi-size   Projet_hipp_fonctionnel_v1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56440	    284	  73016	 129740	  1facc	Projet_hipp_fonctionnel_v1.elf
+Finished building: default.size.stdout
+ 
+10:44:12 **** Incremental Build of configuration Debug for project Turbo_Sat_CSB_Fonctionnel ****
+make -j8 all 
 arm-none-eabi-gcc "../Core/Src/nrf24l01.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../USB_HOST/App -I../USB_HOST/Target -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/nrf24l01.d" -MT"Core/Src/nrf24l01.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/nrf24l01.o"
 arm-none-eabi-gcc -o "Turbo_Sat_CSB_Fonctionnel.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\olivi\Documents\GitHub\Satellite\Turbo_Sat_CSB_Fonctionnel\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Turbo_Sat_CSB_Fonctionnel.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: Turbo_Sat_CSB_Fonctionnel.elf
@@ -8,116 +86,39 @@ Finished building target: Turbo_Sat_CSB_Fonctionnel.elf
 arm-none-eabi-size   Turbo_Sat_CSB_Fonctionnel.elf 
 arm-none-eabi-objdump -h -S  Turbo_Sat_CSB_Fonctionnel.elf  > "Turbo_Sat_CSB_Fonctionnel.list"
    text	   data	    bss	    dec	    hex	filename
-  33568	    160	   3768	  37496	   9278	Turbo_Sat_CSB_Fonctionnel.elf
+  35344	    160	   3784	  39288	   9978	Turbo_Sat_CSB_Fonctionnel.elf
 Finished building: default.size.stdout
  
 Finished building: Turbo_Sat_CSB_Fonctionnel.list
  
-14:51:56 **** Incremental Build of configuration Debug for project Turbo_Sat_CSB_Fonctionnel ****
+10:45:30 **** Incremental Build of configuration Debug for project Projet_hipp_fonctionnel_v1 ****
 make -j8 all 
-arm-none-eabi-size   Turbo_Sat_CSB_Fonctionnel.elf 
+arm-none-eabi-size   Projet_hipp_fonctionnel_v1.elf 
    text	   data	    bss	    dec	    hex	filename
-  33568	    160	   3768	  37496	   9278	Turbo_Sat_CSB_Fonctionnel.elf
+  56440	    284	  73016	 129740	  1facc	Projet_hipp_fonctionnel_v1.elf
 Finished building: default.size.stdout
  
-15:40:23 **** Incremental Build of configuration Debug for project Turbo_Sat_CSB_Fonctionnel ****
+10:46:39 **** Incremental Build of configuration Debug for project Projet_hipp_fonctionnel_v1 ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../USB_HOST/App -I../USB_HOST/Target -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'stateMachine':
-../Core/Src/main.c:479:33: warning: passing argument 2 of 'HAL_USART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
-  479 |    HAL_USART_Transmit(&husart2, compteurPixel, 32, 100);
-      |                                 ^~~~~~~~~~~~~
-      |                                 |
-      |                                 uint32_t {aka long unsigned int}
-In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
-                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.c:20:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_usart.h:512:82: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'uint32_t' {aka 'long unsigned int'}
-  512 | HAL_StatusTypeDef HAL_USART_Transmit(USART_HandleTypeDef *husart, const uint8_t *pTxData, uint16_t Size, uint32_t Timeout);
-      |                                                                   ~~~~~~~~~~~~~~~^~~~~~~
-arm-none-eabi-gcc -o "Turbo_Sat_CSB_Fonctionnel.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\olivi\Documents\GitHub\Satellite\Turbo_Sat_CSB_Fonctionnel\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Turbo_Sat_CSB_Fonctionnel.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Turbo_Sat_CSB_Fonctionnel.elf
- 
-arm-none-eabi-size   Turbo_Sat_CSB_Fonctionnel.elf 
-arm-none-eabi-objdump -h -S  Turbo_Sat_CSB_Fonctionnel.elf  > "Turbo_Sat_CSB_Fonctionnel.list"
+arm-none-eabi-size   Projet_hipp_fonctionnel_v1.elf 
    text	   data	    bss	    dec	    hex	filename
-  33596	    160	   3776	  37532	   929c	Turbo_Sat_CSB_Fonctionnel.elf
+  56440	    284	  73016	 129740	  1facc	Projet_hipp_fonctionnel_v1.elf
 Finished building: default.size.stdout
  
-Finished building: Turbo_Sat_CSB_Fonctionnel.list
- 
-15:41:42 **** Incremental Build of configuration Debug for project Turbo_Sat_CSB_Fonctionnel ****
+10:53:43 **** Incremental Build of configuration Debug for project Projet_hipp_fonctionnel_v1 ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../USB_HOST/App -I../USB_HOST/Target -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "Turbo_Sat_CSB_Fonctionnel.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\olivi\Documents\GitHub\Satellite\Turbo_Sat_CSB_Fonctionnel\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Turbo_Sat_CSB_Fonctionnel.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Turbo_Sat_CSB_Fonctionnel.elf
+arm-none-eabi-gcc "../appli/demo_camera.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F407VGTx -DSTM32F4 -DSTM32F4DISCOVERY -DSTM32 -DDEBUG -c -I../appli -I../lib/hal/inc -I../lib/bsp -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/lis302dl -I../lib/bsp/lis3dsh -I../lib/bsp/audio -I../lib/bsp/ov9655 -I../lib/bsp/stmpe811 -I../lib/bsp/LCD -I../lib/middleware/ -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../lib/middleware/webserver -I../lib/middleware/webserver/lwip -I../lib/middleware/webserver/lwip/src/include -I../lib/middleware/webserver/lwip/system -I../lib/middleware/webserver/lwip/src/include/ipv4 -I../lib/middleware/webserver/lwip/src/include/lwip -I../lib/middleware/webserver/lwip/port -I../lib/middleware/webserver/STD_lib -I../lib/middleware/usb_device/Class/HID/Inc -I../lib/middleware/usb_device/Class/MSC/Inc -I../lib/middleware/usb_device/Core/Inc -I../lib/middleware/usb_host/Class/MSC/Inc -I../lib/middleware/usb_host/Core/Inc -I../lib/middleware/usb_host/Class/HID/Inc -I../lib/middleware/usb_host/ -I../lib/middleware/PDM -O0 -ffunction-sections -Wall -fstack-usage -MMD -MP -MF"appli/demo_camera.d" -MT"appli/demo_camera.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "appli/demo_camera.o"
+arm-none-eabi-gcc -o "Projet_hipp_fonctionnel_v1.elf" @"objects.list"  -lPDMFilter_CM4_GCC -mcpu=cortex-m4 -T"../lib/LinkerScript.ld" --specs=nosys.specs -Wl,-Map="Projet_hipp_fonctionnel_v1.map" -Wl,--gc-sections -static -L../lib/middleware/PDM --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Projet_hipp_fonctionnel_v1.elf
  
-arm-none-eabi-size   Turbo_Sat_CSB_Fonctionnel.elf 
-arm-none-eabi-objdump -h -S  Turbo_Sat_CSB_Fonctionnel.elf  > "Turbo_Sat_CSB_Fonctionnel.list"
+arm-none-eabi-size   Projet_hipp_fonctionnel_v1.elf 
+arm-none-eabi-objdump -h -S  Projet_hipp_fonctionnel_v1.elf  > "Projet_hipp_fonctionnel_v1.list"
+arm-none-eabi-objcopy  -O binary  Projet_hipp_fonctionnel_v1.elf  "Projet_hipp_fonctionnel_v1.bin"
    text	   data	    bss	    dec	    hex	filename
-  33568	    160	   3768	  37496	   9278	Turbo_Sat_CSB_Fonctionnel.elf
+  56420	    284	  73016	 129720	  1fab8	Projet_hipp_fonctionnel_v1.elf
 Finished building: default.size.stdout
  
-Finished building: Turbo_Sat_CSB_Fonctionnel.list
+Finished building: Projet_hipp_fonctionnel_v1.bin
  
-16:25:54 **** Incremental Build of configuration Debug for project Turbo_Sat_CSB_Fonctionnel ****
-make -j8 all 
-arm-none-eabi-size   Turbo_Sat_CSB_Fonctionnel.elf 
-   text	   data	    bss	    dec	    hex	filename
-  33568	    160	   3768	  37496	   9278	Turbo_Sat_CSB_Fonctionnel.elf
-Finished building: default.size.stdout
- 
-16:29:09 **** Incremental Build of configuration Debug for project Turbo_Sat_CSB_Fonctionnel ****
-make -j8 all 
-arm-none-eabi-size   Turbo_Sat_CSB_Fonctionnel.elf 
-   text	   data	    bss	    dec	    hex	filename
-  33568	    160	   3768	  37496	   9278	Turbo_Sat_CSB_Fonctionnel.elf
-Finished building: default.size.stdout
- 
-16:33:41 **** Incremental Build of configuration Debug for project Turbo_Sat_CSB_Fonctionnel ****
-make -j8 all 
-arm-none-eabi-size   Turbo_Sat_CSB_Fonctionnel.elf 
-   text	   data	    bss	    dec	    hex	filename
-  33568	    160	   3768	  37496	   9278	Turbo_Sat_CSB_Fonctionnel.elf
-Finished building: default.size.stdout
- 
-16:45:22 **** Incremental Build of configuration Debug for project Turbo_Sat_CSB_Fonctionnel ****
-make -j8 all 
-arm-none-eabi-size   Turbo_Sat_CSB_Fonctionnel.elf 
-   text	   data	    bss	    dec	    hex	filename
-  33568	    160	   3768	  37496	   9278	Turbo_Sat_CSB_Fonctionnel.elf
-Finished building: default.size.stdout
- 
-16:57:34 **** Incremental Build of configuration Debug for project Turbo_Sat_CSB_Fonctionnel ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../USB_HOST/App -I../USB_HOST/Target -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/nrf24l01.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../USB_HOST/App -I../USB_HOST/Target -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/nrf24l01.d" -MT"Core/Src/nrf24l01.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/nrf24l01.o"
-../Core/Src/main.c: In function 'stateMachine':
-../Core/Src/main.c:477:41: error: expected expression before ',' token
-  477 |    HAL_USART_Transmit(&husart2, buffer, , 100);
-      |                                         ^
-make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
-make: *** Waiting for unfinished jobs....
-"make -j8 all" terminated with exit code 2. Build might be incomplete.
-16:59:23 **** Incremental Build of configuration Debug for project Turbo_Sat_CSB_Fonctionnel ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../USB_HOST/App -I../USB_HOST/Target -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "Turbo_Sat_CSB_Fonctionnel.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\olivi\Documents\GitHub\Satellite\Turbo_Sat_CSB_Fonctionnel\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Turbo_Sat_CSB_Fonctionnel.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Turbo_Sat_CSB_Fonctionnel.elf
- 
-arm-none-eabi-size   Turbo_Sat_CSB_Fonctionnel.elf 
-arm-none-eabi-objdump -h -S  Turbo_Sat_CSB_Fonctionnel.elf  > "Turbo_Sat_CSB_Fonctionnel.list"
-   text	   data	    bss	    dec	    hex	filename
-  33568	    160	   3784	  37512	   9288	Turbo_Sat_CSB_Fonctionnel.elf
-Finished building: default.size.stdout
- 
-Finished building: Turbo_Sat_CSB_Fonctionnel.list
- 
-16:59:35 **** Incremental Build of configuration Debug for project Turbo_Sat_CSB_Fonctionnel ****
-make -j8 all 
-arm-none-eabi-size   Turbo_Sat_CSB_Fonctionnel.elf 
-   text	   data	    bss	    dec	    hex	filename
-  33568	    160	   3784	  37512	   9288	Turbo_Sat_CSB_Fonctionnel.elf
-Finished building: default.size.stdout
+Finished building: Projet_hipp_fonctionnel_v1.list
  

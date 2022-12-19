@@ -46,6 +46,7 @@
 volatile uint8_t dma_buffer[SIZE_DMA_TAB]; // tableau correspondant à la RAM
 volatile bool_e img_ready = FALSE;
 volatile static uint32_t t;
+uint8_t test=1;
 
 DCMI_HandleTypeDef DCMI_HandleStructure;
 DMA_HandleTypeDef DMA_HandleStructure;
@@ -166,17 +167,29 @@ running_e Camera_statemachine(bool_e ask_for_finish, CAMERA_mode_e mode) {
 	case DATA_SENDING:
 		;
 		uint16_t x, y;
-		uint16_t index;
+		uint16_t index=0;
+		uint8_t compteur = 0;
+		uint8_t data[32];
+
 		for (y = 0; y < 240; y++) {
 			for (x = 0; x < 320; x++) {
-				index = (y / 2) * 160 + (x / 2);
-				if(nrf24_Transmit(U16FROMU8(dma_buffer[2 * index + 1],dma_buffer[2 * index])) == 1)
-						{
+				data[compteur]=dma_buffer[index + 1];
+				data[compteur+1]=dma_buffer[index];
+				compteur+=2;
+				index+=2;
+				if(compteur==32 && test==1)
+				{
+					if(nrf24_Transmit(data) == 1)
+					{
 
-						}
+					}
+					compteur=0;
+				}
+
 				//printf("%d",U16FROMU8(dma_buffer[2 * index + 1],dma_buffer[2 * index]));
 			}
 		}
+		test=0;
 		Delay(10);
 		state = WAIT_DETECTION;
 		break;

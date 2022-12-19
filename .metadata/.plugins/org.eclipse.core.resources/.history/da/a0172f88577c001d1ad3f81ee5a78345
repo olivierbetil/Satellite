@@ -22,7 +22,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "nrf24l01.h"
+#include "stm32f4xx_hal.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -50,7 +51,21 @@ SPI_HandleTypeDef hspi2;
 USART_HandleTypeDef husart2;
 
 /* USER CODE BEGIN PV */
+uint8_t Address[]={0xEE, 0xDD, 0xCC, 0xBB, 0xAA};
+ uint8_t buffer[32];
+ uint8_t bufferCMD[32];
+ uint8_t init = 1;
+uint8_t hello[32]="hello world";
+uint32_t compteurPixel=0;
+uint8_t commande;
+ typedef enum
+ {
+ 	RX,
+ 	TX,
+ 	OFF
+ }etat_e;
 
+ etat_e SPI_Mode=RX;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -64,7 +79,7 @@ static void MX_USART2_Init(void);
 void MX_USB_HOST_Process(void);
 
 /* USER CODE BEGIN PFP */
-
+void stateMachine(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -107,7 +122,8 @@ int main(void)
   MX_SPI2_Init();
   MX_USART2_Init();
   /* USER CODE BEGIN 2 */
-
+   nrf24_Init();
+   HAL_USART_Receive_IT(&husart2, &commande, 1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -115,9 +131,9 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    MX_USB_HOST_Process();
 
     /* USER CODE BEGIN 3 */
+	  stateMachine();
   }
   /* USER CODE END 3 */
 }
@@ -327,7 +343,7 @@ static void MX_USART2_Init(void)
 
   /* USER CODE END USART2_Init 1 */
   husart2.Instance = USART2;
-  husart2.Init.BaudRate = 115200;
+  husart2.Init.BaudRate = 9600;
   husart2.Init.WordLength = USART_WORDLENGTH_8B;
   husart2.Init.StopBits = USART_STOPBITS_1;
   husart2.Init.Parity = USART_PARITY_NONE;
@@ -367,6 +383,9 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(OTG_FS_PowerSwitchOn_GPIO_Port, OTG_FS_PowerSwitchOn_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_11|GPIO_PIN_12, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOD, LD4_Pin|LD3_Pin|LD5_Pin|LD6_Pin
@@ -414,6 +433,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
   HAL_GPIO_Init(CLK_IN_GPIO_Port, &GPIO_InitStruct);
 
+  /*Configure GPIO pins : PB11 PB12 */
+  GPIO_InitStruct.Pin = GPIO_PIN_11|GPIO_PIN_12;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
   /*Configure GPIO pins : LD4_Pin LD3_Pin LD5_Pin LD6_Pin
                            Audio_RST_Pin */
   GPIO_InitStruct.Pin = LD4_Pin|LD3_Pin|LD5_Pin|LD6_Pin
@@ -438,6 +464,61 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void stateMachine(void)
+{
+	switch(SPI_Mode)
+	{
+	case RX:
+		if(init==1)
+		{
+			nrf24_RxMode(Address, 10);
+			init=0;
+		}
+		if(isDataAvailable(1))
+		{
+			nrf24_Receive(buffer);
+			HAL_USART_Transmit(&husart2, buffer, 32, 100);
+		}
+		break;
+
+	case TX:
+		if(init==1)
+		{
+			nrf24_TxMode(Address, 10);
+			init=0;
+		}
+		if(nrf24_Transmit(bufferCMD)==1)
+		{
+			SPI_Mode = RX;
+			init = 1;
+		}
+		break;
+
+	default:
+		break;
+	}
+}
+
+void HAL_USART_RxCpltCallback(USART_HandleTypeDef *husart)
+{
+	if(husart->Instance==USART2)
+	{
+		SPI_Mode=TX;
+		init = 1;
+		switch(commande)
+		{
+		case 1:
+			bufferCMD[0]=1;
+			break;
+		case 2:
+			bufferCMD[0]=2;
+			break;
+		default:
+			break;
+		}
+		HAL_USART_Receive_IT(&husart2, &commande, 1);
+	}
+}
 
 /* USER CODE END 4 */
 

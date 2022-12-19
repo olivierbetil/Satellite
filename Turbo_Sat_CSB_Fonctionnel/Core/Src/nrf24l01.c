@@ -244,7 +244,7 @@ void nrf24_Receive(uint8_t *data){
 	cmdtosend=R_RX_PAYLOAD;
 	HAL_SPI_Transmit(SPI_PROTO, &cmdtosend, 1, 100);
 
-	HAL_SPI_Receive(SPI_PROTO, data, 32, 5);
+	HAL_SPI_Receive(SPI_PROTO, data, 32, 100);
 
 	unselectCS();
 
