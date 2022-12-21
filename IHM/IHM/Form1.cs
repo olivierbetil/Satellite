@@ -60,7 +60,7 @@ namespace IHM
             {
                 serialPort1.PortName = cboPort.Text;
                 
-                serialPort1.BaudRate = 9600;
+                serialPort1.BaudRate = 115200;
                 serialPort1.DataBits = 8;
                 serialPort1.Parity = Parity.None;
                 serialPort1.StopBits = StopBits.One;
@@ -99,7 +99,7 @@ namespace IHM
                 if (serialPort1.IsOpen)
                 {
                     //Debug.Write(serialPort1.ReadExisting());
-                    using (StreamWriter writetext = new StreamWriter("write.txt", false, Encoding.GetEncoding("ISO-8859-1")))
+                    using (StreamWriter writetext = new StreamWriter("write.txt", false, Encoding.UTF8))
                     {
                         writetext.WriteLine(serialPort1.ReadExisting());
                     }

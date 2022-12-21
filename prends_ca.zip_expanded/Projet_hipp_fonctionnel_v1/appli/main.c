@@ -92,7 +92,9 @@ int main(void)
 
 	//UART_init(UART2_ID,115200);	//Initialisation de l'USART2 (PA2=Tx, PA3=Rx, 115200 bauds/sec)
 	UART_init(UART6_ID,115200);	//Initialisation de l'USART6 (PC6=Tx, PC7=Rx, 115200 bauds/sec)
-
+	UART_init(UART2_ID,115200);
+	SYS_set_std_usart(UART2_ID, UART2_ID,UART2_ID);
+	UART_DeInit(UART6_ID);
 	UART_init(UART1_ID, 9600);
 	SYS_set_std_usart(UART6_ID,UART6_ID,UART6_ID);
 

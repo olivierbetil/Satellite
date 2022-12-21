@@ -131,6 +131,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+    MX_USB_HOST_Process();
 
     /* USER CODE BEGIN 3 */
 	  stateMachine();
@@ -343,7 +344,7 @@ static void MX_USART2_Init(void)
 
   /* USER CODE END USART2_Init 1 */
   husart2.Instance = USART2;
-  husart2.Init.BaudRate = 9600;
+  husart2.Init.BaudRate = 115200;
   husart2.Init.WordLength = USART_WORDLENGTH_8B;
   husart2.Init.StopBits = USART_STOPBITS_1;
   husart2.Init.Parity = USART_PARITY_NONE;

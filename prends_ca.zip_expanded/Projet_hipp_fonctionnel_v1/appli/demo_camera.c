@@ -170,13 +170,18 @@ running_e Camera_statemachine(bool_e ask_for_finish, CAMERA_mode_e mode) {
 		uint16_t index=0;
 		uint8_t compteur = 0;
 		uint8_t data[32];
-
-		for (y = 0; y < 240; y++) {
-			for (x = 0; x < 320; x++) {
-				data[compteur]=dma_buffer[index + 1];
-				data[compteur+1]=dma_buffer[index];
-				compteur+=2;
+		uint8_t hello[32]="helloworldhelloworldhelloworldxx";
+		if(nrf24_Transmit(hello)==1){}
+		HAL_Delay(20);
+		for (y = 0; y < 120; y++) {
+			for (x = 0; x < 160; x++) {
+				//index = (y/2)*160 + (x/2);
+				data[compteur]=dma_buffer[index];
+				data[compteur+1]=dma_buffer[index+1];
 				index+=2;
+				//data[compteur]=x;
+				//data[compteur+1]=y;
+				compteur+=2;
 				if(compteur==32 && test==1)
 				{
 					if(nrf24_Transmit(data) == 1)
@@ -184,12 +189,13 @@ running_e Camera_statemachine(bool_e ask_for_finish, CAMERA_mode_e mode) {
 
 					}
 					compteur=0;
+					HAL_Delay(4);
 				}
 
 				//printf("%d",U16FROMU8(dma_buffer[2 * index + 1],dma_buffer[2 * index]));
 			}
 		}
-		test=0;
+		//test=0;
 		Delay(10);
 		state = WAIT_DETECTION;
 		break;
