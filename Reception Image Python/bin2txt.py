@@ -1,5 +1,5 @@
 #**********************************************************************************************************
-#   @file image.py
+#   @file bin2txt.py
 #   @author Olivier BETIL
 #   @brief enregistre une image arrivant dans un port serial dans un fichier .txt
 #   @date 21/12/2022
@@ -14,7 +14,7 @@ import numpy as np
 #Initialisation et ouverture du port COM
 ser = serial.Serial()
 ser.baudrate = 115200
-ser.port = 'COM14'
+ser.port = 'COM15'
 ser.open()
 
 

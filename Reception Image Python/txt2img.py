@@ -29,13 +29,13 @@ for line in doc:
     #récupère en trame de bits les données de l'image
     pixel=line.split("  ")
     try:
-        b=BitArray(hex="0"+pixel[0][3:6])
+        b=BitArray(hex="0"+pixel[1][3:6])
     except:
-        b=BitArray(hex=hex(ord(pixel[0][2])))
+        b=BitArray(hex=hex(ord(pixel[1][2])))
     try:
-        b+=BitArray(hex="0"+pixel[1][3:6])
+        b+=BitArray(hex="0"+pixel[0][3:6])
     except:
-        b+=BitArray(hex=hex(ord(pixel[1][2])))
+        b+=BitArray(hex=hex(ord(pixel[0][2])))
     
     #récupère chaque couleur dans la trame, et passe en int
     rouge = b[:5].uint
@@ -43,9 +43,9 @@ for line in doc:
     bleu=b[11:].uint
 
     #Stocke les valeurs dans la matrice
-    imagearray[y][x][0]=rouge
-    imagearray[y][x][1]=vert/2
-    imagearray[y][x][2]=bleu
+    imagearray[y][x][0]=rouge*8
+    imagearray[y][x][1]=vert*4
+    imagearray[y][x][2]=bleu*8
 
     #Incrémentation (ligne par ligne, comme envoyé par stm)
     x+=1
@@ -53,6 +53,16 @@ for line in doc:
         x=0
         y+=1
 
+
+image=""
+for y in range(120):
+    for x in range(160):
+        image+=str(imagearray[y][x][0])+" "+str(imagearray[y][x][1])+" "+str(imagearray[y][x][2])+"\n"
+
 #enregistre l'image en format jpg depuis la matrice
 pil_image = Image.fromarray(imagearray, mode="RGB")
 pil_image.save("image.jpg")
+
+doc = open("couleurs.txt", "w", encoding='utf-8')
+doc.write(image)
+doc.close()
