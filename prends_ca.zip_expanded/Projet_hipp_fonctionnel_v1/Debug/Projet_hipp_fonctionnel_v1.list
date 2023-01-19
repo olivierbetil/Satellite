@@ -996,7 +996,6 @@ running_e Camera_statemachine(bool_e ask_for_finish, CAMERA_mode_e mode) {
  80009de:	2300      	movs	r3, #0
  80009e0:	f8a7 306e 	strh.w	r3, [r7, #110]	; 0x6e
  80009e4:	e039      	b.n	8000a5a <Camera_statemachine+0x1fa>
-				//index = (y/2)*160 + (x/2);
 				data[compteur]=dma_buffer[index];
  80009e6:	f8b7 206a 	ldrh.w	r2, [r7, #106]	; 0x6a
  80009ea:	f897 3069 	ldrb.w	r3, [r7, #105]	; 0x69
@@ -1021,8 +1020,6 @@ running_e Camera_statemachine(bool_e ask_for_finish, CAMERA_mode_e mode) {
  8000a16:	f8b7 306a 	ldrh.w	r3, [r7, #106]	; 0x6a
  8000a1a:	3302      	adds	r3, #2
  8000a1c:	f8a7 306a 	strh.w	r3, [r7, #106]	; 0x6a
-				//data[compteur]=x;
-				//data[compteur+1]=y;
 				compteur+=2;
  8000a20:	f897 3069 	ldrb.w	r3, [r7, #105]	; 0x69
  8000a24:	3302      	adds	r3, #2
@@ -1064,8 +1061,6 @@ running_e Camera_statemachine(bool_e ask_for_finish, CAMERA_mode_e mode) {
  8000a70:	2b77      	cmp	r3, #119	; 0x77
  8000a72:	d9b4      	bls.n	80009de <Camera_statemachine+0x17e>
 				}
-
-				//printf("%d",U16FROMU8(dma_buffer[2 * index + 1],dma_buffer[2 * index]));
 			}
 		}
 		compteur=0;

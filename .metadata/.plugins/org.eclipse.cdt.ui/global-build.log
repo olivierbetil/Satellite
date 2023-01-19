@@ -33,3 +33,59 @@ arm-none-eabi-size   Turbo_Sat_CSB_Fonctionnel.elf
   36000	    160	   3784	  39944	   9c08	Turbo_Sat_CSB_Fonctionnel.elf
 Finished building: default.size.stdout
  
+11:51:00 **** Incremental Build of configuration Debug for project Projet_hipp_fonctionnel_v1 ****
+make -j8 all 
+arm-none-eabi-gcc "../appli/demo_camera.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F407VGTx -DSTM32F4 -DSTM32F4DISCOVERY -DSTM32 -DDEBUG -c -I../appli -I../lib/hal/inc -I../lib/bsp -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/lis302dl -I../lib/bsp/lis3dsh -I../lib/bsp/audio -I../lib/bsp/ov9655 -I../lib/bsp/stmpe811 -I../lib/bsp/LCD -I../lib/middleware/ -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../lib/middleware/webserver -I../lib/middleware/webserver/lwip -I../lib/middleware/webserver/lwip/src/include -I../lib/middleware/webserver/lwip/system -I../lib/middleware/webserver/lwip/src/include/ipv4 -I../lib/middleware/webserver/lwip/src/include/lwip -I../lib/middleware/webserver/lwip/port -I../lib/middleware/webserver/STD_lib -I../lib/middleware/usb_device/Class/HID/Inc -I../lib/middleware/usb_device/Class/MSC/Inc -I../lib/middleware/usb_device/Core/Inc -I../lib/middleware/usb_host/Class/MSC/Inc -I../lib/middleware/usb_host/Core/Inc -I../lib/middleware/usb_host/Class/HID/Inc -I../lib/middleware/usb_host/ -I../lib/middleware/PDM -O0 -ffunction-sections -Wall -fstack-usage -MMD -MP -MF"appli/demo_camera.d" -MT"appli/demo_camera.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "appli/demo_camera.o"
+arm-none-eabi-gcc "../appli/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F407VGTx -DSTM32F4 -DSTM32F4DISCOVERY -DSTM32 -DDEBUG -c -I../appli -I../lib/hal/inc -I../lib/bsp -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/lis302dl -I../lib/bsp/lis3dsh -I../lib/bsp/audio -I../lib/bsp/ov9655 -I../lib/bsp/stmpe811 -I../lib/bsp/LCD -I../lib/middleware/ -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../lib/middleware/webserver -I../lib/middleware/webserver/lwip -I../lib/middleware/webserver/lwip/src/include -I../lib/middleware/webserver/lwip/system -I../lib/middleware/webserver/lwip/src/include/ipv4 -I../lib/middleware/webserver/lwip/src/include/lwip -I../lib/middleware/webserver/lwip/port -I../lib/middleware/webserver/STD_lib -I../lib/middleware/usb_device/Class/HID/Inc -I../lib/middleware/usb_device/Class/MSC/Inc -I../lib/middleware/usb_device/Core/Inc -I../lib/middleware/usb_host/Class/MSC/Inc -I../lib/middleware/usb_host/Core/Inc -I../lib/middleware/usb_host/Class/HID/Inc -I../lib/middleware/usb_host/ -I../lib/middleware/PDM -O0 -ffunction-sections -Wall -fstack-usage -MMD -MP -MF"appli/main.d" -MT"appli/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "appli/main.o"
+../appli/main.c: In function 'main':
+../appli/main.c:87:1: error: unknown type name 'w'
+   87 | w HAL_Init();
+      | ^
+../appli/main.c:87:3: error: conflicting types for 'HAL_Init'
+   87 | w HAL_Init();
+      |   ^~~~~~~~
+In file included from ../appli/main.c:8:
+../lib/hal/inc/stm32f4xx_hal.h:162:19: note: previous declaration of 'HAL_Init' was here
+  162 | HAL_StatusTypeDef HAL_Init(void);
+      |                   ^~~~~~~~
+../appli/main.c:101:2: warning: implicit declaration of function 'DEMO_accelerometer_close' [-Wimplicit-function-declaration]
+  101 |  DEMO_accelerometer_close(); //On initialise l'accéléromètre pour configurer ses sorties en opendrain... pour qu'elles n'entrent pas en conflit avec la caméra !
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [appli/subdir.mk:28: appli/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:51:17 **** Incremental Build of configuration Debug for project Projet_hipp_fonctionnel_v1 ****
+make -j8 all 
+arm-none-eabi-gcc "../appli/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F407VGTx -DSTM32F4 -DSTM32F4DISCOVERY -DSTM32 -DDEBUG -c -I../appli -I../lib/hal/inc -I../lib/bsp -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/lis302dl -I../lib/bsp/lis3dsh -I../lib/bsp/audio -I../lib/bsp/ov9655 -I../lib/bsp/stmpe811 -I../lib/bsp/LCD -I../lib/middleware/ -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../lib/middleware/webserver -I../lib/middleware/webserver/lwip -I../lib/middleware/webserver/lwip/src/include -I../lib/middleware/webserver/lwip/system -I../lib/middleware/webserver/lwip/src/include/ipv4 -I../lib/middleware/webserver/lwip/src/include/lwip -I../lib/middleware/webserver/lwip/port -I../lib/middleware/webserver/STD_lib -I../lib/middleware/usb_device/Class/HID/Inc -I../lib/middleware/usb_device/Class/MSC/Inc -I../lib/middleware/usb_device/Core/Inc -I../lib/middleware/usb_host/Class/MSC/Inc -I../lib/middleware/usb_host/Core/Inc -I../lib/middleware/usb_host/Class/HID/Inc -I../lib/middleware/usb_host/ -I../lib/middleware/PDM -O0 -ffunction-sections -Wall -fstack-usage -MMD -MP -MF"appli/main.d" -MT"appli/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "appli/main.o"
+../appli/main.c: In function 'main':
+../appli/main.c:101:2: warning: implicit declaration of function 'DEMO_accelerometer_close' [-Wimplicit-function-declaration]
+  101 |  DEMO_accelerometer_close(); //On initialise l'accéléromètre pour configurer ses sorties en opendrain... pour qu'elles n'entrent pas en conflit avec la caméra !
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Projet_hipp_fonctionnel_v1.elf" @"objects.list"  -lPDMFilter_CM4_GCC -mcpu=cortex-m4 -T"../lib/LinkerScript.ld" --specs=nosys.specs -Wl,-Map="Projet_hipp_fonctionnel_v1.map" -Wl,--gc-sections -static -L../lib/middleware/PDM --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Projet_hipp_fonctionnel_v1.elf
+ 
+arm-none-eabi-size   Projet_hipp_fonctionnel_v1.elf 
+arm-none-eabi-objdump -h -S  Projet_hipp_fonctionnel_v1.elf  > "Projet_hipp_fonctionnel_v1.list"
+arm-none-eabi-objcopy  -O binary  Projet_hipp_fonctionnel_v1.elf  "Projet_hipp_fonctionnel_v1.bin"
+   text	   data	    bss	    dec	    hex	filename
+  56684	    284	  73016	 129984	  1fbc0	Projet_hipp_fonctionnel_v1.elf
+Finished building: default.size.stdout
+ 
+Finished building: Projet_hipp_fonctionnel_v1.bin
+ 
+Finished building: Projet_hipp_fonctionnel_v1.list
+ 
+11:51:44 **** Incremental Build of configuration Debug for project Turbo_Sat_CSB_Fonctionnel ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../USB_HOST/App -I../USB_HOST/Target -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Turbo_Sat_CSB_Fonctionnel.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\olivi\Documents\GitHub\Satellite\Turbo_Sat_CSB_Fonctionnel\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Turbo_Sat_CSB_Fonctionnel.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Turbo_Sat_CSB_Fonctionnel.elf
+ 
+arm-none-eabi-size   Turbo_Sat_CSB_Fonctionnel.elf 
+arm-none-eabi-objdump -h -S  Turbo_Sat_CSB_Fonctionnel.elf  > "Turbo_Sat_CSB_Fonctionnel.list"
+   text	   data	    bss	    dec	    hex	filename
+  35984	    160	   3784	  39928	   9bf8	Turbo_Sat_CSB_Fonctionnel.elf
+Finished building: default.size.stdout
+ 
+Finished building: Turbo_Sat_CSB_Fonctionnel.list
+ 

@@ -138,7 +138,6 @@ int main(void)
 	  if(isDataAvailable(1))
 	  {
 	  	nrf24_Receive(buffer);
-	  	compteur+=1;
 	  	HAL_UART_Transmit(&huart2, buffer, 32, 100);
 	  }
   }

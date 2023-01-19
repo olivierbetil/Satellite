@@ -175,12 +175,9 @@ running_e Camera_statemachine(bool_e ask_for_finish, CAMERA_mode_e mode) {
 		HAL_Delay(20);
 		for (y = 0; y < 120; y++) {
 			for (x = 0; x < 160; x++) {
-				//index = (y/2)*160 + (x/2);
 				data[compteur]=dma_buffer[index];
 				data[compteur+1]=dma_buffer[index+1];
 				index+=2;
-				//data[compteur]=x;
-				//data[compteur+1]=y;
 				compteur+=2;
 				if(compteur==32 && test==1)
 				{
@@ -191,8 +188,6 @@ running_e Camera_statemachine(bool_e ask_for_finish, CAMERA_mode_e mode) {
 					compteur=0;
 					HAL_Delay(4);
 				}
-
-				//printf("%d",U16FROMU8(dma_buffer[2 * index + 1],dma_buffer[2 * index]));
 			}
 		}
 		compteur=0;
