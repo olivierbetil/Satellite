@@ -105,9 +105,9 @@ int main(void)
 	nrf24_Init();
 	nrf24_TxMode(Address, 10);
 
+
 	while (1)
 	{
-			Camera_statemachine(FALSE, MODE_CAMERA_TO_SRAM);
-
+		Camera_statemachine(FALSE, MODE_CAMERA_TO_SRAM);
 	}
 }

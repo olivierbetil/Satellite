@@ -98,7 +98,7 @@ running_e Camera_statemachine(bool_e ask_for_finish, CAMERA_mode_e mode) {
 	} state_e;
 	static bool_e asked_for_finish = FALSE;
 	static state_e state = INIT;
-	running_e ret = IN_PROGRESS;
+	static running_e ret = IN_PROGRESS;
 	char text[30];
 
 	if (ask_for_finish)
@@ -195,6 +195,7 @@ running_e Camera_statemachine(bool_e ask_for_finish, CAMERA_mode_e mode) {
 				//printf("%d",U16FROMU8(dma_buffer[2 * index + 1],dma_buffer[2 * index]));
 			}
 		}
+		compteur=0;
 		//test=0;
 		Delay(10);
 		state = WAIT_DETECTION;

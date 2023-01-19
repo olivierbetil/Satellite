@@ -48,7 +48,7 @@ I2S_HandleTypeDef hi2s3;
 SPI_HandleTypeDef hspi1;
 SPI_HandleTypeDef hspi2;
 
-USART_HandleTypeDef husart2;
+UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 uint8_t Address[]={0xEE, 0xDD, 0xCC, 0xBB, 0xAA};
@@ -58,6 +58,7 @@ uint8_t Address[]={0xEE, 0xDD, 0xCC, 0xBB, 0xAA};
 uint8_t hello[32]="hello world";
 uint32_t compteurPixel=0;
 uint8_t commande;
+uint16_t compteur=0;
  typedef enum
  {
  	RX,
@@ -65,7 +66,7 @@ uint8_t commande;
  	OFF
  }etat_e;
 
- etat_e SPI_Mode=RX;
+ etat_e SPI_Mode=TX;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -75,7 +76,7 @@ static void MX_I2C1_Init(void);
 static void MX_I2S3_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_SPI2_Init(void);
-static void MX_USART2_Init(void);
+static void MX_USART2_UART_Init(void);
 void MX_USB_HOST_Process(void);
 
 /* USER CODE BEGIN PFP */
@@ -120,9 +121,10 @@ int main(void)
   MX_SPI1_Init();
   MX_USB_HOST_Init();
   MX_SPI2_Init();
-  MX_USART2_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
    nrf24_Init();
+   nrf24_RxMode(Address, 10);
    //HAL_USART_Receive_IT(&husart2, &commande, 1);
   /* USER CODE END 2 */
 
@@ -131,10 +133,14 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    MX_USB_HOST_Process();
 
     /* USER CODE BEGIN 3 */
-	  stateMachine();
+	  if(isDataAvailable(1))
+	  {
+	  	nrf24_Receive(buffer);
+	  	compteur+=1;
+	  	HAL_UART_Transmit(&huart2, buffer, 32, 100);
+	  }
   }
   /* USER CODE END 3 */
 }
@@ -333,7 +339,7 @@ static void MX_SPI2_Init(void)
   * @param None
   * @retval None
   */
-static void MX_USART2_Init(void)
+static void MX_USART2_UART_Init(void)
 {
 
   /* USER CODE BEGIN USART2_Init 0 */
@@ -343,16 +349,15 @@ static void MX_USART2_Init(void)
   /* USER CODE BEGIN USART2_Init 1 */
 
   /* USER CODE END USART2_Init 1 */
-  husart2.Instance = USART2;
-  husart2.Init.BaudRate = 115200;
-  husart2.Init.WordLength = USART_WORDLENGTH_8B;
-  husart2.Init.StopBits = USART_STOPBITS_1;
-  husart2.Init.Parity = USART_PARITY_NONE;
-  husart2.Init.Mode = USART_MODE_TX_RX;
-  husart2.Init.CLKPolarity = USART_POLARITY_LOW;
-  husart2.Init.CLKPhase = USART_PHASE_1EDGE;
-  husart2.Init.CLKLastBit = USART_LASTBIT_DISABLE;
-  if (HAL_USART_Init(&husart2) != HAL_OK)
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 115200;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
   {
     Error_Handler();
   }
@@ -465,42 +470,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void stateMachine(void)
-{
-	switch(SPI_Mode)
-	{
-	case RX:
-		if(init==1)
-		{
-			nrf24_RxMode(Address, 10);
-			init=0;
-		}
 
-		if(isDataAvailable(1))
-		{
-			nrf24_Receive(buffer);
-			HAL_USART_Transmit(&husart2, buffer, 32, 100);
-		}
-
-		break;
-
-	case TX:
-		if(init==1)
-		{
-			//nrf24_TxMode(Address, 10);
-			init=0;
-		}
-		//if(nrf24_Transmit(bufferCMD)==1)
-		//{
-		//	SPI_Mode = RX;
-		//	init = 1;
-		//}
-		break;
-
-	default:
-		break;
-	}
-}
 /*
 void HAL_USART_RxCpltCallback(USART_HandleTypeDef *husart)
 {

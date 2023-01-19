@@ -15,6 +15,7 @@ typedef enum {
 	MODE_CAMERA_TO_SRAM, MODE_CAMERA_TO_LCD
 } CAMERA_mode_e;
 
+
 uint8_t DCMI_SingleRandomWrite(uint8_t Device, uint16_t Addr, uint8_t Data);
 uint8_t DCMI_SingleRandomRead(uint8_t Device, uint16_t Addr);
 

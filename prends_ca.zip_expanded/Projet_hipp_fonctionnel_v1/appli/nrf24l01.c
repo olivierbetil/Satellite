@@ -135,7 +135,7 @@ void nrf24_Init(void){
 	nrf24_WriteReg(SETUP_AW, 0x03);
 	nrf24_WriteReg(SETUP_RETR, 0);
 	nrf24_WriteReg(RF_CH, 0);
-	nrf24_WriteReg(RF_SETUP, 0x0E);
+	nrf24_WriteReg(RF_SETUP, 0x0e);
 	enableCE();
 }
 

@@ -135,7 +135,7 @@ void nrf24_Init(void){
 	nrf24_WriteReg(SETUP_AW, 0x03);
 	nrf24_WriteReg(SETUP_RETR, 0);
 	nrf24_WriteReg(RF_CH, 0);
-	nrf24_WriteReg(RF_SETUP, 0x0E);
+	nrf24_WriteReg(RF_SETUP, 0x0e);
 	enableCE();
 }
 
@@ -175,7 +175,7 @@ uint8_t nrf24_Transmit(uint8_t *data){
 	unselectCS();
 
 	HAL_Delay(1);
-
+	uint8_t test = nrf24_ReadReg(RF_SETUP);
 	uint8_t fifostatus = nrf24_ReadReg(FIFO_STATUS);
 
 	if((fifostatus&(1<<4)) && !(fifostatus&(1<<3))){
